@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140418143220) do
+ActiveRecord::Schema.define(version: 20140418144905) do
 
   create_table "attributes", force: true do |t|
     t.string   "label"
@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 20140418143220) do
     t.integer  "participant_type_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "participant_attribute_id"
   end
 
 end
