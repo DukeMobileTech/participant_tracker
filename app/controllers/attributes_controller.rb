@@ -29,10 +29,8 @@ class AttributesController < ApplicationController
     respond_to do |format|
       if @attribute.save
         format.html { redirect_to @attribute, notice: 'Attribute was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @attribute }
       else
         format.html { render action: 'new' }
-        format.json { render json: @attribute.errors, status: :unprocessable_entity }
       end
     end
   end

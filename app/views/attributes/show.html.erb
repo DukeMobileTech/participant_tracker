@@ -1,19 +1,25 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
+    <div class="col-md-12">
+        <h2 class="page-title">Attribute <%= @attribute.label %></h2>
+    </div>
+</div>
+<section class="widget">
+<table class="table table-striped no-margin sources-table">
+    <thead>
+        <tr>
+          <th>Attribute Name </th>
+          <th>Attribute Value </th>
+        </tr>
+    </thead> 
+    <tbody>
+        <% @attribute.attributes.each do |column_name, column_value| %>
+            <tr>
+                <td><%= column_name %></td>
+                <td><%= column_value %></td>
+            </tr>
+        <% end %>
+    </tbody>   
+</table>
 
-<p>
-  <strong>Label:</strong>
-  <%= @attribute.label %>
-</p>
-
-<p>
-  <strong>Type:</strong>
-  <%= @attribute.type %>
-</p>
-
-<p>
-  <strong>Required:</strong>
-  <%= @attribute.required %>
-</p>
-
-<%= link_to 'Edit', edit_attribute_path(@attribute) %> |
-<%= link_to 'Back', attributes_path %>
+<%= link_to 'Edit Attribute', edit_attribute_path(@attribute), class: 'btn btn-primary' %> 
+</section>
