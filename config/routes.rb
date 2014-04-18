@@ -1,4 +1,12 @@
 ParticipantTracking::Application.routes.draw do
+  resources :participant_attributes
+
+  resources :attributes
+
+  resources :participant_types
+
+  resources :participants
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

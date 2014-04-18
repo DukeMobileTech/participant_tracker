@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Participant:</strong>
+  <%= @participant_attribute.participant_id %>
+</p>
+
+<p>
+  <strong>Attribute:</strong>
+  <%= @participant_attribute.attribute_id %>
+</p>
+
+<p>
+  <strong>Value:</strong>
+  <%= @participant_attribute.value %>
+</p>
+
+<%= link_to 'Edit', edit_participant_attribute_path(@participant_attribute) %> |
+<%= link_to 'Back', participant_attributes_path %>
