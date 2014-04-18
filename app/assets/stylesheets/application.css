@@ -11,5 +11,6 @@
  *= require_self
  *= require bootstrap-original/bootstrap
  *= require bootstrap-original/responsive
+ *= require application.commented 
  *= require_tree .
  */

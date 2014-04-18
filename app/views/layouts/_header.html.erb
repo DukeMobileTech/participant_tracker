@@ -1,28 +1,27 @@
 <body class="background-dark">
-    
-    <div class="logo">
-      <h4><%= link_to 'Participant Tracking', root_path %></h4>
-    </div>
-    
-    <nav id="sidebar" class="sidebar nav-collapse collapse">
-        <ul id="side-nav" class="side-nav">
-            
-            <li class="<%= current_page?(participants_path) ? 'active' : 'panel' %>">
-                <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#side-nav" href="#participants-collapse">
-                    <i class="icon-edit"></i> <span class="name">Participants</span></a>
-                <ul id="participants-collapse" class="panel-collapse collapse">
-                    <li><%= link_to 'Participants', participants_path %></li>
-                    <li><%= link_to 'New Participant', new_participant_path %></li>
-                </ul>
-            </li>
-            <li class="<%= current_page?(attributes_path) ? 'active' : 'panel' %>">
-                <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#side-nav" href="#attributes-collapse">
-                    <i class="icon-edit"></i> <span class="name">Attributes</span></a>
-                <ul id="participants-collapse" class="panel-collapse collapse">
-                    <li><%= link_to 'Attributes', attributes_path %></li>
-                    <li><%= link_to 'New Attribute', new_attribute_path %></li>
-                </ul>
-            </li>
-            
-        </ul>
-    </nav>
+<div class="logo">
+  <h4><%= link_to 'Participant Tracking', root_path %></h4>
+</div>
+
+<nav id="sidebar" class="sidebar nav-collapse collapse">
+    <ul id="side-nav" class="side-nav">
+        
+        <li class="<%= current_page?(participants_path) ? 'active' : 'panel' %>">
+            <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#side-nav" href="#participants-collapse">
+                <i class="icon-edit"></i> <span class="name">Participants</span></a>
+            <ul id="participants-collapse" class="panel-collapse collapse">
+                <li><%= link_to 'Participants', participants_path %></li>
+                <li><%= link_to 'New Participant', new_participant_path %></li>
+            </ul>
+        </li>
+        <li class="<%= current_page?(attributes_path) ? 'active' : 'panel' %>">
+            <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#side-nav" href="#attributes-collapse">
+                <i class="icon-edit"></i> <span class="name">Attributes</span></a>
+            <ul id="attributes-collapse" class="panel-collapse collapse">
+                <li><%= link_to 'Attributes', attributes_path %></li>
+                <li><%= link_to 'New Attribute', new_attribute_path %></li>
+            </ul>
+        </li>
+        
+    </ul>
+</nav>
