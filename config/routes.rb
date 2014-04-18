@@ -1,10 +1,9 @@
 ParticipantTracking::Application.routes.draw do
+  
+  root 'participants#index'
   resources :participant_attributes
-
   resources :attributes
-
   resources :participant_types
-
   resources :participants
 
   # The priority is based upon order of creation: first created -> highest priority.
