@@ -17,10 +17,10 @@
       <tr>
         <td><%= participant_attribute.participant_id %></td>
         <td><%= participant_attribute.property_id %></td>
-        <td><%= participant_attribute.value %></td>
+        <td><%= link_to participant_attribute.value, participant_participant_attribute_path(@participant, participant_attribute) %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-<%= link_to 'New Participant Attribute', new_participant_participant_attribute_path(@participant), class: 'btn btn-primary' %>
+<%= link_to 'New Participant Property', new_participant_participant_attribute_path(@participant), class: 'btn btn-primary' %>
 </section>

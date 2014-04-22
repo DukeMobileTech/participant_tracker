@@ -1,13 +1,19 @@
+<div class="row">
+    <div class="col-md-12">
+        <h2 class="page-title">Participant Property Label: <%= @participant_attribute.value %></h2>
+    </div>
+</div>
+<section class="widget">
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Participant:</strong>
+  <strong>Participant ID:</strong>
   <%= @participant_attribute.participant_id %>
 </p>
 
 <p>
-  <strong>Attribute:</strong>
-  <%= @participant_attribute.attribute_id %>
+  <strong>Property ID:</strong>
+  <%= @participant_attribute.property_id %>
 </p>
 
 <p>
@@ -15,5 +21,5 @@
   <%= @participant_attribute.value %>
 </p>
 
-<%= link_to 'Edit', edit_participant_attribute_path(@participant_attribute) %> |
-<%= link_to 'Back', participant_attributes_path %>
+<%= link_to 'Edit Property', edit_participant_participant_attribute_path(@participant, @participant_attribute), class: 'btn btn-primary' %> 
+</section>

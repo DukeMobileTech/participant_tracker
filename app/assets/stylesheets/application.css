@@ -12,5 +12,7 @@
  *= require bootstrap-original/bootstrap
  *= require bootstrap-original/responsive
  *= require application.commented 
+ *= require ../../../vendor/assets/lib/nvd3/src/nv.d3
+ *= require fontello/css/fontello
  *= require_tree .
  */
