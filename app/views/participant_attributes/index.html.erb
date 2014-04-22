@@ -7,11 +7,8 @@
   <thead>
     <tr>
       <th>Participant ID</th>
-      <th>Attribute ID</th>
+      <th>Property ID</th>
       <th>Value</th>
-      <th></th>
-      <th></th>
-      <th></th>
     </tr>
   </thead>
 
@@ -19,11 +16,8 @@
     <% @participant_attributes.each do |participant_attribute| %>
       <tr>
         <td><%= participant_attribute.participant_id %></td>
-        <td><%= participant_attribute.attribute_id %></td>
+        <td><%= participant_attribute.property_id %></td>
         <td><%= participant_attribute.value %></td>
-        <td><%= link_to 'Show', participant_attribute %></td>
-        <td><%= link_to 'Edit', edit_participant_attribute_path(participant_attribute) %></td>
-        <td><%= link_to 'Destroy', participant_attribute, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

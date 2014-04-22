@@ -13,8 +13,8 @@
   <% end %>
 
   <div class="row control-group">
-    <label class="col-md-4 control-label"><%= f.label :attribute_id, 'Attribute Label' %></label>
-    <div class="col-md-8"><%= f.select(:attribute_id, Attribute.all.collect {|att| [att.label, att.id]}) %></div>
+    <label class="col-md-4 control-label"><%= f.label :attribute_id, 'Property Label' %></label>
+    <div class="col-md-8"><%= f.select(:property_id, Property.all.collect {|att| [att.label, att.id]}) %></div>
   </div>
   <div class="row control-group">
     <label class="col-md-4 control-label"><%= f.label :value %></label>

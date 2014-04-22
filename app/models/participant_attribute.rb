@@ -1,4 +1,4 @@
 class ParticipantAttribute < ActiveRecord::Base
-  has_many :attributes 
+  has_many :properties 
   belongs_to :participant 
 end

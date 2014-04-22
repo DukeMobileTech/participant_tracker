@@ -22,12 +22,12 @@
                 <li><%= link_to 'New Participant Type', new_participant_type_path %></li>
             </ul>
         </li>    
-        <li class="<%= current_page?(attributes_path) ? 'active' : 'panel' %>">
+        <li class="<%= current_page?(properties_path) ? 'active' : 'panel' %>">
             <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#side-nav" href="#attributes-collapse">
-                <i class="icon-edit"></i> <span class="name">Participant Attributes</span></a>
+                <i class="icon-edit"></i> <span class="name">Participant Properties</span></a>
             <ul id="attributes-collapse" class="panel-collapse collapse">
-                <li><%= link_to 'Attributes', attributes_path %></li>
-                <li><%= link_to 'New Attribute', new_attribute_path %></li>
+                <li><%= link_to 'Properties', properties_path %></li>
+                <li><%= link_to 'New Property', new_property_path %></li>
             </ul>
         </li>
         

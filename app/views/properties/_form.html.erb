@@ -1,12 +1,12 @@
 <section class="widget">                        
 
-<%= form_for(@attribute) do |f| %>
-  <% if @attribute.errors.any? %>
+<%= form_for(@property) do |f| %>
+  <% if @property.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@attribute.errors.count, "error") %> prohibited this attribute from being saved:</h2>
+      <h2><%= pluralize(@property.errors.count, "error") %> prohibited this attribute from being saved:</h2>
 
       <ul>
-      <% @attribute.errors.full_messages.each do |msg| %>
+      <% @property.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>
@@ -18,8 +18,8 @@
     <div class="col-md-8 controls form-group"><%= f.text_field :label %></div>
   </div>
   <div class="row control-group">
-    <label class="col-md-4 control-label"><%= f.label :type %></label>
-    <div class="col-md-8 controls form-group"><%= f.select(:type, options_for_select(['integer', 'string'])) %></div>
+    <label class="col-md-4 control-label"><%= f.label :type_of %></label>
+    <div class="col-md-8 controls form-group"><%= f.select(:type_of, options_for_select(['integer', 'string'])) %></div>
   </div>
   <div class="row control-group">
     <label class="col-md-4 control-label"><%= f.label :required %></label>

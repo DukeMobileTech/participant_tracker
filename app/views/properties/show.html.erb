@@ -1,18 +1,18 @@
 <div class="row">
     <div class="col-md-12">
-        <h2 class="page-title">Attribute <%= @attribute.label %></h2>
+        <h2 class="page-title">Property Label: <%= @property.label %></h2>
     </div>
 </div>
 <section class="widget">
 <table class="table table-striped no-margin sources-table">
     <thead>
         <tr>
-          <th>Attribute Name </th>
-          <th>Attribute Value </th>
+          <th>Property Name </th>
+          <th>Property Value </th>
         </tr>
     </thead> 
     <tbody>
-        <% @attribute.attributes.each do |column_name, column_value| %>
+        <% @property.attributes.each do |column_name, column_value| %>
             <tr>
                 <td><%= column_name %></td>
                 <td><%= column_value %></td>
@@ -21,5 +21,5 @@
     </tbody>   
 </table>
 
-<%= link_to 'Edit Attribute', edit_attribute_path(@attribute), class: 'btn btn-primary' %> 
+<%= link_to 'Edit Property', edit_property_path(@property), class: 'btn btn-primary' %> 
 </section>

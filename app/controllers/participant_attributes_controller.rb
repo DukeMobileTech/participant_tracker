@@ -23,7 +23,7 @@ class ParticipantAttributesController < ApplicationController
 
     respond_to do |format|
       if @participant_attribute.save
-        format.html { redirect_to @participant_attribute, notice: 'Participant attribute was successfully created.' }
+        format.html { redirect_to participant_participant_attributes_path(@participant), notice: 'Participant attribute was successfully created.' }
       else
         format.html { render action: 'new' }
       end
@@ -33,7 +33,7 @@ class ParticipantAttributesController < ApplicationController
   def update
     respond_to do |format|
       if @participant_attribute.update(participant_attribute_params)
-        format.html { redirect_to @participant_attribute, notice: 'Participant attribute was successfully updated.' }
+        format.html { redirect_to participant_participant_attributes_path(@participant), notice: 'Participant attribute was successfully updated.' }
       else
         format.html { render action: 'edit' }
       end
@@ -56,6 +56,6 @@ class ParticipantAttributesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def participant_attribute_params
-      params.require(:participant_attribute).permit(:participant_id, :attribute_id, :value)
+      params.require(:participant_attribute).permit(:participant_id, :property_id, :value)
     end
 end

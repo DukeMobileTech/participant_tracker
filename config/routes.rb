@@ -1,7 +1,7 @@
 ParticipantTracking::Application.routes.draw do
   
   root 'participants#index'
-  resources :attributes
+  resources :properties 
   resources :participant_types
   resources :participants do
       resources :participant_attributes
