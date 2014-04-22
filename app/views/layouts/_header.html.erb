@@ -14,9 +14,17 @@
                 <li><%= link_to 'New Participant', new_participant_path %></li>
             </ul>
         </li>
+        <li class="<%= current_page?(participant_types_path) ? 'active' : 'panel' %>">
+            <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#side-nav" href="#participanttypes-collapse">
+                <i class="icon-edit"></i> <span class="name">Participant Types</span></a>
+            <ul id="participanttypes-collapse" class="panel-collapse collapse">
+                <li><%= link_to 'Participant Types', participant_types_path %></li>
+                <li><%= link_to 'New Participant Type', new_participant_type_path %></li>
+            </ul>
+        </li>    
         <li class="<%= current_page?(attributes_path) ? 'active' : 'panel' %>">
             <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#side-nav" href="#attributes-collapse">
-                <i class="icon-edit"></i> <span class="name">Attributes</span></a>
+                <i class="icon-edit"></i> <span class="name">Participant Attributes</span></a>
             <ul id="attributes-collapse" class="panel-collapse collapse">
                 <li><%= link_to 'Attributes', attributes_path %></li>
                 <li><%= link_to 'New Attribute', new_attribute_path %></li>

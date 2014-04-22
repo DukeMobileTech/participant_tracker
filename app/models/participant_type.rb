@@ -1,3 +1,3 @@
 class ParticipantType < ActiveRecord::Base
-  belongs_to :participant
+  has_many :participants
 end

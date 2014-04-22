@@ -2,27 +2,27 @@
 <div class="col-md-12">
     <h2 class="page-title">Participants</h2>
 
-<table>
+<section class="widget">
+<table class="table table-striped no-margin sources-table">
   <thead>
     <tr>
-      <th>Participant type</th>
-      <th></th>
-      <th></th>
-      <th></th>
+      <th> ID </th>
+      <th>Participant Type</th>
+      <th>Participant Attributes</th>
     </tr>
   </thead>
 
   <tbody>
     <% @participants.each do |participant| %>
-      <tr>
-        <td><%= participant.participant_type_id %></td>
-        <td><%= link_to 'Show', participant %></td>
-        <td><%= link_to 'Edit', edit_participant_path(participant) %></td>
-        <td><%= link_to 'Destroy', participant, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+        <tr>
+            <td><%= participant.id %></td>
+            <td><%= participant.participant_type_id %></td>
+            <td><%= link_to 'Show', participant_participant_attributes_path(participant) %></td>
+        </tr>
     <% end %>
   </tbody>
 </table>
+</section>
 
 </div>
 </div>

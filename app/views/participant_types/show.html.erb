@@ -1,9 +1,26 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Label:</strong>
-  <%= @participant_type.label %>
-</p>
+<div class="row">
+    <div class="col-md-12">
+        <h2 class="page-title">Participant Type: <%= @participant_type.label %></h2>
+    </div>
+</div>
+<section class="widget">
+<table class="table table-striped no-margin sources-table">
+    <thead>
+        <tr>
+          <th>Participant Type Name </th>
+          <th>Participant Type Value </th>
+        </tr>
+    </thead> 
+    <tbody>
+        <% @participant_type.attributes.each do |column_name, column_value| %>
+            <tr>
+                <td><%= column_name %></td>
+                <td><%= column_value %></td>
+            </tr>
+        <% end %>
+    </tbody>   
+</table>
 
-<%= link_to 'Edit', edit_participant_type_path(@participant_type) %> |
-<%= link_to 'Back', participant_types_path %>
+<%= link_to 'Edit Participant Type', edit_participant_type_path(@participant_type), class: 'btn btn-primary' %> 
+</section>

@@ -1,10 +1,13 @@
-<h1>Listing participant_attributes</h1>
-
-<table>
+<div class="row">
+<div class="col-md-12">
+    <h2 class="page-title">Attributes for Participant <%= @participant.id %></h2>
+    
+<section class="widget">
+<table class="table table-striped no-margin sources-table">
   <thead>
     <tr>
-      <th>Participant</th>
-      <th>Attribute</th>
+      <th>Participant ID</th>
+      <th>Attribute ID</th>
       <th>Value</th>
       <th></th>
       <th></th>
@@ -25,7 +28,5 @@
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Participant attribute', new_participant_attribute_path %>
+<%= link_to 'New Participant Attribute', new_participant_participant_attribute_path(@participant), class: 'btn btn-primary' %>
+</section>

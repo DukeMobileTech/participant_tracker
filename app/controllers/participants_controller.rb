@@ -29,10 +29,8 @@ class ParticipantsController < ApplicationController
     respond_to do |format|
       if @participant.save
         format.html { redirect_to @participant, notice: 'Participant was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @participant }
       else
         format.html { render action: 'new' }
-        format.json { render json: @participant.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -43,10 +41,8 @@ class ParticipantsController < ApplicationController
     respond_to do |format|
       if @participant.update(participant_params)
         format.html { redirect_to @participant, notice: 'Participant was successfully updated.' }
-        format.json { head :no_content }
       else
         format.html { render action: 'edit' }
-        format.json { render json: @participant.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -57,7 +53,6 @@ class ParticipantsController < ApplicationController
     @participant.destroy
     respond_to do |format|
       format.html { redirect_to participants_url }
-      format.json { head :no_content }
     end
   end
 

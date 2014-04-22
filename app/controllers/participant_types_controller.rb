@@ -29,10 +29,8 @@ class ParticipantTypesController < ApplicationController
     respond_to do |format|
       if @participant_type.save
         format.html { redirect_to @participant_type, notice: 'Participant type was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @participant_type }
       else
         format.html { render action: 'new' }
-        format.json { render json: @participant_type.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -43,10 +41,8 @@ class ParticipantTypesController < ApplicationController
     respond_to do |format|
       if @participant_type.update(participant_type_params)
         format.html { redirect_to @participant_type, notice: 'Participant type was successfully updated.' }
-        format.json { head :no_content }
       else
         format.html { render action: 'edit' }
-        format.json { render json: @participant_type.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -57,7 +53,6 @@ class ParticipantTypesController < ApplicationController
     @participant_type.destroy
     respond_to do |format|
       format.html { redirect_to participant_types_url }
-      format.json { head :no_content }
     end
   end
 
