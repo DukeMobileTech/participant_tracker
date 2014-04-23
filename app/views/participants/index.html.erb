@@ -6,7 +6,7 @@
 <table class="table table-striped no-margin sources-table">
   <thead>
     <tr>
-      <th> ID </th>
+      <th>Participant ID</th>
       <th>Participant Type</th>
       <th>Participant Properties</th>
     </tr>
@@ -16,7 +16,7 @@
     <% @participants.each do |participant| %>
         <tr>
             <td><%= participant.id %></td>
-            <td><%= participant.participant_type_id %></td>
+            <td><%= participant.label %></td>
             <td><%= link_to 'Show', participant_participant_properties_path(participant) %></td>
         </tr>
     <% end %>

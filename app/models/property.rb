@@ -1,4 +1,3 @@
 class Property < ActiveRecord::Base
-  belongs_to :participant_properties
-  
+  has_many :participant_properties
 end
