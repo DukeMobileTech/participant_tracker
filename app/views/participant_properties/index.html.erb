@@ -1,0 +1,26 @@
+<div class="row">
+<div class="col-md-12">
+    <h2 class="page-title">Properties for Participant <%= @participant.id %></h2>
+    
+<section class="widget">
+<table class="table table-striped no-margin sources-table">
+  <thead>
+    <tr>
+      <th>Participant ID</th>
+      <th>Property ID</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @participant_properties.each do |participant_property| %>
+      <tr>
+        <td><%= participant_property.participant_id %></td>
+        <td><%= participant_property.property_id %></td>
+        <td><%= link_to participant_property.value, participant_participant_property_path(@participant, participant_property) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= link_to 'New Participant Property', new_participant_participant_property_path(@participant), class: 'btn btn-primary' %>
+</section>

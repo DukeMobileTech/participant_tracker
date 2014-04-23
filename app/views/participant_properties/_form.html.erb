@@ -1,11 +1,11 @@
 <section class="widget">                        
-<%= form_for [@participant, @participant_attribute] do |f| %>
-  <% if @participant_attribute.errors.any? %>
+<%= form_for [@participant, @participant_property] do |f| %>
+  <% if @participant_property.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@participant_attribute.errors.count, "error") %> prohibited this participant_attribute from being saved:</h2>
+      <h2><%= pluralize(@participant_property.errors.count, "error") %> prohibited this participant_property from being saved:</h2>
 
       <ul>
-      <% @participant_attribute.errors.full_messages.each do |msg| %>
+      <% @participant_property.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>
@@ -13,7 +13,7 @@
   <% end %>
 
   <div class="row control-group">
-    <label class="col-md-4 control-label"><%= f.label :attribute_id, 'Property Label' %></label>
+    <label class="col-md-4 control-label"><%= f.label :property_id, 'Property Label' %></label>
     <div class="col-md-8"><%= f.select(:property_id, Property.all.collect {|att| [att.label, att.id]}) %></div>
   </div>
   <div class="row control-group">

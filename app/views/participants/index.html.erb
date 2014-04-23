@@ -8,7 +8,7 @@
     <tr>
       <th> ID </th>
       <th>Participant Type</th>
-      <th>Participant Attributes</th>
+      <th>Participant Properties</th>
     </tr>
   </thead>
 
@@ -17,7 +17,7 @@
         <tr>
             <td><%= participant.id %></td>
             <td><%= participant.participant_type_id %></td>
-            <td><%= link_to 'Show', participant_participant_attributes_path(participant) %></td>
+            <td><%= link_to 'Show', participant_participant_properties_path(participant) %></td>
         </tr>
     <% end %>
   </tbody>
