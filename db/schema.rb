@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140428135338) do
+ActiveRecord::Schema.define(version: 20140428150235) do
 
   create_table "participant_properties", force: true do |t|
     t.integer  "participant_id"
@@ -31,7 +31,6 @@ ActiveRecord::Schema.define(version: 20140428135338) do
     t.integer  "participant_type_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "participant_property_id"
   end
 
   create_table "properties", force: true do |t|
