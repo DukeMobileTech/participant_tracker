@@ -18,7 +18,7 @@ module Api
        
       private
       def participant_property_params
-        params.require(:participant_property).permit(:participant_id, :property_id, :value)
+        params.require(:participant_property).permit(:participant_id, :property_id, :value, :uuid)
       end
          
     end  

@@ -7,6 +7,7 @@
   <thead>
     <tr>
       <th>Participant ID</th>
+      <th>Participant UUID</th>
       <th>Participant Type</th>
       <th>Participant Properties</th>
     </tr>
@@ -16,6 +17,7 @@
     <% @participants.each do |participant| %>
         <tr>
             <td><%= participant.id %></td>
+            <td><%= participant.uuid %></td>
             <td><%= participant.label %></td>
             <td><%= link_to 'Show', participant_participant_properties_path(participant) %></td>
         </tr>

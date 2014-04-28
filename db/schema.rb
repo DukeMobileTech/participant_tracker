@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140428150235) do
+ActiveRecord::Schema.define(version: 20140428165457) do
 
   create_table "participant_properties", force: true do |t|
     t.integer  "participant_id"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20140428150235) do
     t.string   "value"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "uuid"
   end
 
   create_table "participant_types", force: true do |t|
@@ -31,6 +32,7 @@ ActiveRecord::Schema.define(version: 20140428150235) do
     t.integer  "participant_type_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "uuid"
   end
 
   create_table "properties", force: true do |t|
