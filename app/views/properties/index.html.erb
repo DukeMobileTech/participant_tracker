@@ -8,9 +8,10 @@
     <table class="table table-striped no-margin sources-table">
       <thead>
         <tr>
-          <th>Label</th>
+          <th>Property Label</th>
           <th>Type</th>
           <th>Required</th>
+          <th>Participant Type Label</th>
         </tr>
       </thead>
     
@@ -20,6 +21,11 @@
             <td><%= link_to property.label, property_path(property) %></td>
             <td><%= property.type_of %></td>
             <td><%= property.required %></td>
+            <td>
+                <% if property.participant_type_id %>
+                    <%= property.participant_type.label %>
+                <% end %>
+            </td>
           </tr>
         <% end %>
       </tbody>

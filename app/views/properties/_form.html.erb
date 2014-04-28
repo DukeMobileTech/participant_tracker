@@ -22,6 +22,10 @@
     <div class="col-md-8 controls form-group"><%= f.select(:type_of, options_for_select(['integer', 'string'])) %></div>
   </div>
   <div class="row control-group">
+    <label class="col-md-4 control-label"><%= f.label :participant_type_id %></label>
+    <div class="col-md-8 controls form-group"><%= f.select(:participant_type_id, ParticipantType.all.collect {|p| [p.label, p.id]}) %></div>
+  </div>
+  <div class="row control-group">
     <label class="col-md-4 control-label"><%= f.label :required %></label>
     <div class="col-md-8 controls form-group"><%= f.check_box :required %></div>
   </div>
