@@ -48,3 +48,4 @@ end
 gem 'better_errors', group: [:development, :test]
 gem 'binding_of_caller', group: [:development, :test]
 
+gem 'devise', '~> 3.2.4'
