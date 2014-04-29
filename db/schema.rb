@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140429143505) do
+ActiveRecord::Schema.define(version: 20140429205747) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -47,18 +47,20 @@ ActiveRecord::Schema.define(version: 20140429143505) do
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
 
   create_table "participant_properties", force: true do |t|
-    t.integer  "participant_id"
+    t.integer  "participant_id",   limit: 255
     t.integer  "property_id"
     t.string   "value"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "uuid"
+    t.string   "participant_uuid"
   end
 
   create_table "participant_types", force: true do |t|
     t.string   "label"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "label_property"
   end
 
   create_table "participants", force: true do |t|
