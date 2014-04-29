@@ -1,5 +1,3 @@
-
-
 <script type="text/template" id="message-template">
 
   <div class="sender pull-left">
@@ -33,8 +31,6 @@
   </div>
 
 </script>
-
-
 
 <script type="text/template" id="settings-template">
 
@@ -88,8 +84,6 @@
 
 </script>
 
-
-
 <script type="text/template" id="sidebar-settings-template">
 
   <%% auto = sidebarState == 'auto'%>
@@ -118,6 +112,8 @@
 
   <%% } %>
 </script>
-
+<% if user_signed_in? %>
+    </div>
+<% end %>
 </body>
 </html>
