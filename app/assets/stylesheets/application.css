@@ -14,5 +14,8 @@
  *= require application.commented 
  *= require ../../../vendor/assets/lib/nvd3/src/nv.d3
  *= require fontello/css/fontello
- *= require_tree .
+ *= require properties
+ *= require participants
+ *= require participant_types
+ *= require participant_properties
  */
