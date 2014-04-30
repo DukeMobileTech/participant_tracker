@@ -1,4 +1,5 @@
 ActiveAdmin.register ParticipantType do
+  menu priority: 6
 
   
   # See permitted parameters documentation:

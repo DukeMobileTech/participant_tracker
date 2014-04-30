@@ -1,4 +1,5 @@
 ActiveAdmin.register Property do
+  menu priority: 7
 
   
   # See permitted parameters documentation:
