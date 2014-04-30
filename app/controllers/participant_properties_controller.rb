@@ -56,6 +56,6 @@ class ParticipantPropertiesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def participant_property_params
-      params.require(:participant_property).permit(:participant_id, :property_id, :value, :uuid, :participant_uuid)
+      params.require(:participant_property).permit(:property_id, :value, :uuid, :participant_uuid)
     end
 end
