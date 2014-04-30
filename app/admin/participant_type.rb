@@ -1,18 +1,13 @@
 ActiveAdmin.register ParticipantType do
   menu priority: 6
-
+  permit_params :label, :label_property
   
-  # See permitted parameters documentation:
-  # https://github.com/gregbell/active_admin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
-  #
-  # permit_params :list, :of, :attributes, :on, :model
-  #
-  # or
-  #
-  # permit_params do
-  #  permitted = [:permitted, :attributes]
-  #  permitted << :other if resource.something?
-  #  permitted
-  # end
+  form do |f|
+    f.inputs "Participant Type Details" do
+      f.input :label
+      f.input :property, collection: Property.all.collect {|p| [p.label, p.id]} 
+    end
+    f.actions
+  end
   
 end

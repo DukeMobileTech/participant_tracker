@@ -1,18 +1,15 @@
 ActiveAdmin.register ParticipantProperty do
-    menu priority: 5
+  menu priority: 5
+  permit_params :uuid, :participant_uuid, :property_id, :value
 
-  
-  # See permitted parameters documentation:
-  # https://github.com/gregbell/active_admin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
-  #
-  # permit_params :list, :of, :attributes, :on, :model
-  #
-  # or
-  #
-  # permit_params do
-  #  permitted = [:permitted, :attributes]
-  #  permitted << :other if resource.something?
-  #  permitted
-  # end
+  form do |f|
+    f.inputs "Participant Property Details" do
+      f.input :uuid
+      f.input :participant, collection: Participant.all.collect {|p| [p.uuid, p.id]} 
+      f.input :property, collection: Property.all.collect {|p| [p.label, p.id]}
+      f.input :value
+    end
+    f.actions
+  end
   
 end
