@@ -19,7 +19,7 @@
   </div>
   <div class="row control-group">
     <label class="col-md-4 control-label"><%= f.label :type_of %></label>
-    <div class="col-md-8 controls form-group"><%= f.select(:type_of, options_for_select(['integer', 'string'])) %></div>
+    <div class="col-md-8 controls form-group"><%= f.select(:type_of, options_for_select(Settings.property_types)) %></div>
   </div>
   <div class="row control-group">
     <label class="col-md-4 control-label"><%= f.label :participant_type_id %></label>
