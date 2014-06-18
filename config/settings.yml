@@ -1,2 +1,2 @@
 property_types: ['STRING', 'INTEGER', 'DATE']
-
+minimum_android_version_code: 1
