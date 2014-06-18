@@ -5,9 +5,9 @@ ParticipantTracking::Application.routes.draw do
   devise_for :users
   namespace :api, defaults: { format: 'json' } do
     namespace :v1 do
-      resources :participants, only: [:index, :create]
+      resources :participants, only: [:index, :create, :update]
       resources :properties, only: [:index]
-      resources :participant_properties, only: [:index, :create]
+      resources :participant_properties, only: [:index, :create, :update]
       resources :participant_types, only: [:index]
     end
   end 

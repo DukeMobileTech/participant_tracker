@@ -16,6 +16,15 @@ module Api
         end 
       end
       
+      def update
+        @participant = Participant.find(params[:id])
+        if @participant.update_attributes(participant_params)
+          render json: @participant, status: :ok
+        else
+          render nothing: true, status: :unprocessable_entity
+        end 
+      end
+      
       private
       def participant_params
         params.require(:participant).permit(:participant_type_id, :uuid)
