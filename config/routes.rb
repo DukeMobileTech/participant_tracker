@@ -9,6 +9,10 @@ ParticipantTracking::Application.routes.draw do
       resources :properties, only: [:index]
       resources :participant_properties, only: [:index, :create, :update]
       resources :participant_types, only: [:index]
+      devise_scope :user do
+        post 'sessions' => 'sessions#create', :as => 'login'
+        delete 'sessions' => 'sessions#destroy', :as => 'logout'
+      end
     end
   end 
    
