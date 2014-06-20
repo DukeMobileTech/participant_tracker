@@ -4,7 +4,7 @@ module Api
       respond_to :json
       
       def index
-        respond_with Participant.all
+        respond_with Participant.with_deleted
       end  
       
       def create

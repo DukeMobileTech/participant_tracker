@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140619152821) do
+ActiveRecord::Schema.define(version: 20140620211053) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -59,21 +59,30 @@ ActiveRecord::Schema.define(version: 20140619152821) do
     t.datetime "updated_at"
     t.string   "uuid"
     t.string   "participant_uuid"
+    t.datetime "deleted_at"
   end
+
+  add_index "participant_properties", ["deleted_at"], name: "index_participant_properties_on_deleted_at"
 
   create_table "participant_types", force: true do |t|
     t.string   "label"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "label_property"
+    t.datetime "deleted_at"
   end
+
+  add_index "participant_types", ["deleted_at"], name: "index_participant_types_on_deleted_at"
 
   create_table "participants", force: true do |t|
     t.integer  "participant_type_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "uuid"
+    t.datetime "deleted_at"
   end
+
+  add_index "participants", ["deleted_at"], name: "index_participants_on_deleted_at"
 
   create_table "properties", force: true do |t|
     t.string   "label"
@@ -82,7 +91,10 @@ ActiveRecord::Schema.define(version: 20140619152821) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "participant_type_id"
+    t.datetime "deleted_at"
   end
+
+  add_index "properties", ["deleted_at"], name: "index_properties_on_deleted_at"
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

@@ -17,3 +17,4 @@ gem 'binding_of_caller', group: [:development, :test]
 gem 'devise', '~> 3.2.4'
 gem 'activeadmin', github: 'gregbell/active_admin'
 gem 'rails_config', '~> 0.4.1'
+gem 'paranoia', '~> 2.0.2'
