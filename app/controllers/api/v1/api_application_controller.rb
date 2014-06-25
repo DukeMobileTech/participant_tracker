@@ -22,10 +22,11 @@ module Api
       end
       
       def verify_authenticity_token
-        if params[:auth_token] && params[:user_email]
+        if params[:auth_token] != 'null' && params[:user_email] != 'null'
           user = User.find_by_email(params[:user_email])
-          permitted = Devise.secure_compare(user.authentication_token, params[:auth_token])
-          head :forbidden unless user && permitted
+          head :forbidden unless user && Devise.secure_compare(user.authentication_token, params[:auth_token])
+        else
+          head :no_content
         end
       end
     
