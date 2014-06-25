@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: participants
+#
+#  id                  :integer          not null, primary key
+#  participant_type_id :integer
+#  created_at          :datetime
+#  updated_at          :datetime
+#  uuid                :string(255)
+#  deleted_at          :datetime
+#
+
 class Participant < ActiveRecord::Base
   has_many :participant_properties, foreign_key: :participant_uuid, primary_key: :uuid
   belongs_to :participant_type
