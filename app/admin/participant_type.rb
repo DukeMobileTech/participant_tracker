@@ -1,6 +1,6 @@
 ActiveAdmin.register ParticipantType do
   menu priority: 6
-  permit_params :label, :label_property
+  permit_params :label
   
   form do |f|
     f.inputs "Participant Type Details" do

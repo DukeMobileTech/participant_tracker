@@ -10,6 +10,7 @@
 #  updated_at          :datetime
 #  participant_type_id :integer
 #  deleted_at          :datetime
+#  use_as_label        :boolean          default(FALSE)
 #
 
 class Property < ActiveRecord::Base
