@@ -11,7 +11,7 @@
           <th>Property Label</th>
           <th>Type</th>
           <th>Required</th>
-          <th>Participant Type Label</th>
+          <th>Use as Label</th>
         </tr>
       </thead>
     
@@ -21,11 +21,7 @@
             <td><%= link_to property.label, property_path(property) %></td>
             <td><%= property.type_of %></td>
             <td><%= property.required %></td>
-            <td>
-                <% if property.participant_type_id %>
-                    <%= property.participant_type.label %>
-                <% end %>
-            </td>
+            <td><%= property.use_as_label %></td>
           </tr>
         <% end %>
       </tbody>

@@ -5,7 +5,6 @@ ActiveAdmin.register ParticipantType do
   form do |f|
     f.inputs "Participant Type Details" do
       f.input :label
-      f.input :property, collection: Property.all.collect {|p| [p.label, p.id]} 
     end
     f.actions
   end
