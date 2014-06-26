@@ -43,7 +43,7 @@ class ParticipantPropertiesController < ApplicationController
   def destroy
     @participant_property.destroy
     respond_to do |format|
-      format.html { redirect_to participant_participant_properties_path(@participant,) }
+      format.html { redirect_to participant_participant_properties_path(@participant) }
     end
   end
 

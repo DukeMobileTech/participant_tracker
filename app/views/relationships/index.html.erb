@@ -1,0 +1,27 @@
+<div class="row">
+<div class="col-md-12">
+    <h2 class="page-title">Relationships</h2>
+
+<section class="widget">
+<table class="table table-striped no-margin sources-table">
+  <thead>
+    <tr>
+      <th>Uuid</th>
+      <th>Relationship Type Id</th>
+      <th>Participant Owner Uuid</th>
+      <th>Participant Related Uuid</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @relationships.each do |relationship| %>
+      <tr>
+        <td><%= link_to relationship.uuid, participant_relationship_path(@participant, relationship) %></td>
+        <td><%= relationship.relationship_type_id %></td>
+        <td><%= relationship.participant_owner_uuid %></td>
+        <td><%= relationship.participant_related_uuid %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</section>

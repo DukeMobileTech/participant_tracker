@@ -1,0 +1,35 @@
+<section class="widget"> 
+<%= form_for [@participant, @relationship] do |f| %>
+  <% if @relationship.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@relationship.errors.count, "error") %> prohibited this relationship from being saved:</h2>
+
+      <ul>
+      <% @relationship.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="row control-group">
+    <label class="col-md-4 control-label"><%= f.label :relationship_type_id %></label>
+    <div class="col-md-8"><%= f.number_field :relationship_type_id %></div>
+  </div>
+  <div class="row control-group">
+    <label class="col-md-4 control-label"><%= f.label :participant_owner_uuid %></label>
+    <div class="col-md-8"><%= f.text_field :participant_owner_uuid %></div>
+  </div>
+  <div class="row control-group">
+    <label class="col-md-4 control-label"><%= f.label :uuid %></label>
+    <div class="col-md-8"><%= f.text_field :uuid %></div>
+  </div>
+  <div class="row control-group">
+    <label class="col-md-4 control-label"><%= f.label :participant_related_uuid %></label>
+    <div class="col-md-8"><%= f.text_field :participant_related_uuid %></div>
+  </div>
+  <div class="form-actions">
+    <%= f.submit class: 'btn btn-primary' %>
+  </div>
+<% end %>
+</section> 

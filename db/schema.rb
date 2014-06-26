@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140626151238) do
+ActiveRecord::Schema.define(version: 20140626160022) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -100,6 +100,15 @@ ActiveRecord::Schema.define(version: 20140626151238) do
     t.integer  "participant_type_owner_id"
     t.integer  "participant_type_related_id"
     t.string   "label"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "relationships", force: true do |t|
+    t.integer  "relationship_type_id"
+    t.string   "participant_owner_uuid"
+    t.string   "uuid"
+    t.string   "participant_related_uuid"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -10,6 +10,7 @@
       <th>Participant UUID</th>
       <th>Participant Type</th>
       <th>Participant Properties</th>
+      <th>Participant Relationships</th>
     </tr>
   </thead>
 
@@ -19,7 +20,8 @@
             <td><%= participant.id %></td>
             <td><%= participant.uuid %></td>
             <td><%= participant.label %></td>
-            <td><%= link_to 'Show', participant_participant_properties_path(participant) %></td>
+            <td><%= link_to 'Properties', participant_participant_properties_path(participant) %></td>
+            <td><%= link_to 'Relationships', participant_relationships_path(participant) %></td>
         </tr>
     <% end %>
   </tbody>
