@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140626160022) do
+ActiveRecord::Schema.define(version: 20140626185149) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -102,7 +102,10 @@ ActiveRecord::Schema.define(version: 20140626160022) do
     t.string   "label"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.datetime "deleted_at"
   end
+
+  add_index "relationship_types", ["deleted_at"], name: "index_relationship_types_on_deleted_at"
 
   create_table "relationships", force: true do |t|
     t.integer  "relationship_type_id"
@@ -111,7 +114,10 @@ ActiveRecord::Schema.define(version: 20140626160022) do
     t.string   "participant_related_uuid"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.datetime "deleted_at"
   end
+
+  add_index "relationships", ["deleted_at"], name: "index_relationships_on_deleted_at"
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
