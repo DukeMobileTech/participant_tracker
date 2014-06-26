@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+<div class="row">
+    <div class="col-md-12">
+        <h2 class="page-title">Relationship Type: <%= @relationship_type.label %></h2>
+    </div>
+</div>
+
+<section class="widget">
+<p>
+  <strong>Participant Type Owner:</strong>
+  <%= @relationship_type.participant_type_owner_id %>
+</p>
+
+<p>
+  <strong>Participant Type Related:</strong>
+  <%= @relationship_type.participant_type_related_id %>
+</p>
+
+<p>
+  <strong>Label:</strong>
+  <%= @relationship_type.label %>
+</p>
+
+<%= link_to 'Edit Relationship Type', edit_relationship_type_path(@relationship_type), class: 'btn btn-primary' %>
+</section>

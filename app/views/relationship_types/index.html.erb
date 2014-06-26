@@ -1,0 +1,25 @@
+<div class="row">
+<div class="col-md-12">
+    <h2 class="page-title">Relationship Types</h2>
+ 
+<section class="widget">
+<table class="table table-striped no-margin sources-table">
+  <thead>
+    <tr>
+      <th>Owner</th>
+      <th>Related</th>
+      <th>Label</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @relationship_types.each do |relationship_type| %>
+      <tr>
+        <td><%= relationship_type.participant_type_owner_id %></td>
+        <td><%= relationship_type.participant_type_related_id %></td>
+        <td><%= relationship_type.label %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</section>

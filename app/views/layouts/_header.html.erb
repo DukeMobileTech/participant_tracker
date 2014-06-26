@@ -30,6 +30,14 @@
                 <li><%= link_to 'New Property', new_property_path %></li>
             </ul>
         </li>
+        <li class="<%= current_page?(relationship_types_path) ? 'active' : 'panel' %>">
+            <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#side-nav" href="#relationshiptypes-collapse">
+                <i class="icon-edit"></i> <span class="name">Relationship Types</span></a>
+            <ul id="relationshiptypes-collapse" class="panel-collapse collapse">
+                <li><%= link_to 'Relationship Types', relationship_types_path %></li>
+                <li><%= link_to 'New Relationship Type', new_relationship_type_path %></li>
+            </ul>
+        </li> 
         
     </ul>
 </nav>
