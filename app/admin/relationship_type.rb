@@ -5,8 +5,8 @@ ActiveAdmin.register RelationshipType do
   form do |f|
     f.inputs "Relationship Type Details" do
       f.input :label
-      f.input :participant_type_owner_id
-      f.input :participant_type_related_id
+      f.input :participant_type_owner, collection: ParticipantType.all.collect {|p| [p.label, p.id]}
+      f.input :participant_type_related, collection: ParticipantType.all.collect {|p| [p.label, p.id]}
     end
     f.actions
   end

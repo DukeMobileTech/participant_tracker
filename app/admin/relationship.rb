@@ -5,9 +5,9 @@ ActiveAdmin.register Relationship do
   form do |f|
     f.inputs "Relationship Details" do
       f.input :uuid
-      f.input :relationship_type_id
-      f.input :participant_owner_uuid
-      f.input :participant_related_uuid
+      f.input :relationship_type, collection: RelationshipType.all.collect {|p| [p.label, p.id]}
+      f.input :participant_owner, collection: Participant.all.collect {|p| [p.uuid, p.uuid]}
+      f.input :participant_related, collection: Participant.all.collect {|p| [p.uuid, p.uuid]}
     end
     f.actions
   end
