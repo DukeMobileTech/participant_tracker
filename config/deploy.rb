@@ -6,6 +6,7 @@ set :repo_url, 'git@github.com:kodvinci/participant_tracker.git'
 set :branch, 'master'
 set :deploy_to, '/var/www/participant_tracker'
 set :pty, false
+set :user, 'dmtg'
 set :use_sudo, false
 set :rails_env, 'production'
 set :deploy_via, :copy
