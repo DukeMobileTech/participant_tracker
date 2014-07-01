@@ -88,6 +88,9 @@ GEM
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
     erubis (2.7.0)
+    exception_notification (4.0.1)
+      actionmailer (>= 3.0.4)
+      activesupport (>= 3.0.4)
     execjs (2.0.2)
     formtastic (2.3.0.rc3)
       actionpack (>= 3.0)
@@ -210,6 +213,7 @@ DEPENDENCIES
   capistrano-rvm (~> 0.1.1)
   coffee-rails (~> 4.0.0)
   devise (~> 3.2.4)
+  exception_notification
   jbuilder (~> 1.2)
   jquery-rails
   paranoia (~> 2.0.2)
