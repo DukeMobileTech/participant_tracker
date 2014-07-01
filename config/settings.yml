@@ -1,2 +1,6 @@
 property_types: ['STRING', 'INTEGER', 'DATE']
 minimum_android_version_code: 1
+exception_notifications:
+  email_prefix: '[LSTracker] '
+  sender: 'noreply@chpir.org'
+  recipients: ['michael@chpir.org', 'leonard@chpir.org']
