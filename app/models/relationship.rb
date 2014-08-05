@@ -1,3 +1,17 @@
+# == Schema Information
+#
+# Table name: relationships
+#
+#  id                       :integer          not null, primary key
+#  relationship_type_id     :integer
+#  participant_owner_uuid   :string(255)
+#  uuid                     :string(255)
+#  participant_related_uuid :string(255)
+#  created_at               :datetime
+#  updated_at               :datetime
+#  deleted_at               :datetime
+#
+
 class Relationship < ActiveRecord::Base
   belongs_to :participant, foreign_key: :participant_owner_uuid, primary_key: :uuid
   belongs_to :relationship_type

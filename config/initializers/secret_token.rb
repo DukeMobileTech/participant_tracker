@@ -9,4 +9,8 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-ParticipantTracking::Application.config.secret_key_base = '147687ec524fe3c6491e37e8492b642b01bf42d0cb0a20cc9dfbb46993308601317ff5ea086b7ed510d7477fd26e90de5ddc85aed229ff6af779cad81ee1dd4c'
+ParticipantTracking::Application.config.secret_key_base = if Rails.env.development? or Rails.env.test? 
+  '147687ec524fe3c6491e37e8492b642b01bf42d0cb0a20cc9dfbb46993308601317ff5ea086b7ed510d7477fd26e90de5ddc85aed229ff6af779cad81ee1dd4c'
+else 
+  File.read(File.join(Rails.root, 'config', 'secret_token.txt'))
+end
