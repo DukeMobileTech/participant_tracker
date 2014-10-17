@@ -11,6 +11,7 @@ ParticipantTracking::Application.routes.draw do
       resources :participant_types, only: [:index]
       resources :relationship_types, only: [:index]
       resources :relationships, only: [:index, :create, :update]
+      resources :android_updates, only: [:index, :show]
       devise_scope :user do
         post 'sessions' => 'sessions#create', :as => 'login'
         delete 'sessions' => 'sessions#destroy', :as => 'logout'

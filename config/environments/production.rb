@@ -100,7 +100,8 @@ ParticipantTracking::Application.configure do
     :address => "smtp.mailgun.org",
     :port => 587,
     :domain => ENV['SMTP_DOMAIN'],
-    :user_name => ENV['SMTP_USERNAME'],                                                                      :password => ENV['SMTP_PASSWORD']
+    :user_name => ENV['SMTP_USERNAME'],                                                                      
+    :password => ENV['SMTP_PASSWORD']
  }
  
  config.action_mailer.default_url_options = { :host => ENV['HOSTNAME'] }
