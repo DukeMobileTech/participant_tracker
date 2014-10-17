@@ -26,10 +26,9 @@ module Api
       end
       
       private
-      def participant_params
-        params.require(:participant).permit(:participant_type_id, :uuid)
-      end
-       
+        def participant_params
+          params.require(:participant).permit(:participant_type_id, :uuid, :device_uuid, :device_label)
+        end
     end  
   end
 end

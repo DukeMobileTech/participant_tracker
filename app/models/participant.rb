@@ -8,6 +8,8 @@
 #  updated_at          :datetime
 #  uuid                :string(255)
 #  deleted_at          :datetime
+#  device_uuid         :string(255)      default("")
+#  device_label        :string(255)      default("")
 #
 
 class Participant < ActiveRecord::Base

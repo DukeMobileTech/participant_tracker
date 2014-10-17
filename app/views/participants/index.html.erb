@@ -11,6 +11,8 @@
       <th>Participant Type</th>
       <th>Participant Properties</th>
       <th>Participant Relationships</th>
+      <th>Device UUID</th>
+      <th>Device Label</th>
     </tr>
   </thead>
 
@@ -22,6 +24,8 @@
             <td><%= participant.label %></td>
             <td><%= link_to 'Properties', participant_participant_properties_path(participant) %></td>
             <td><%= link_to 'Relationships', participant_relationships_path(participant) %></td>
+            <td><%= participant.device_uuid %></td>
+            <td><%= participant.device_label %></td>
         </tr>
     <% end %>
   </tbody>

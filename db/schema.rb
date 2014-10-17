@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140626185149) do
+ActiveRecord::Schema.define(version: 20141017194412) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -79,6 +79,8 @@ ActiveRecord::Schema.define(version: 20140626185149) do
     t.datetime "updated_at"
     t.string   "uuid"
     t.datetime "deleted_at"
+    t.string   "device_uuid",         default: ""
+    t.string   "device_label",        default: ""
   end
 
   add_index "participants", ["deleted_at"], name: "index_participants_on_deleted_at"
