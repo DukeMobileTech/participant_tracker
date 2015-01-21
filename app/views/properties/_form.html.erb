@@ -22,6 +22,9 @@
     <div class="col-md-8 controls form-group"><%= f.select(:type_of, options_for_select(Settings.property_types)) %></div>
   </div>
   <div class="row control-group">
+    <label class="col-md-4 control-label"><%= f.label :validator %></label>
+    <div class="col-md-8 controls form-group"><%= f.select(:validator, options_for_select(Settings.validators)) %></div>
+  <div class="row control-group">
     <label class="col-md-4 control-label"><%= f.label :participant_type_id %></label>
     <div class="col-md-8 controls form-group"><%= f.select(:participant_type_id, ParticipantType.all.collect {|p| [p.label, p.id]}) %></div>
   </div>

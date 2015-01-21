@@ -11,6 +11,7 @@
 #  participant_type_id :integer
 #  deleted_at          :datetime
 #  use_as_label        :boolean          default(FALSE)
+#  validator           :string(255)      default("")
 #
 
 class Property < ActiveRecord::Base

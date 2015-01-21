@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141017194412) do
+ActiveRecord::Schema.define(version: 20150121202759) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -104,6 +104,7 @@ ActiveRecord::Schema.define(version: 20141017194412) do
     t.integer  "participant_type_id"
     t.datetime "deleted_at"
     t.boolean  "use_as_label",        default: false
+    t.string   "validator",           default: ""
   end
 
   add_index "properties", ["deleted_at"], name: "index_properties_on_deleted_at"
