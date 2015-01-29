@@ -12,6 +12,7 @@
 #  deleted_at          :datetime
 #  use_as_label        :boolean          default(FALSE)
 #  validator           :string(255)      default("")
+#  include_in_metadata :boolean          default(FALSE)
 #
 
 class Property < ActiveRecord::Base
