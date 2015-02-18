@@ -13,8 +13,8 @@
 #
 
 class Participant < ActiveRecord::Base
-  has_many :participant_properties, foreign_key: :participant_uuid, primary_key: :uuid
-  has_many :relationships, foreign_key: :participant_owner_uuid, primary_key: :uuid
+  has_many :participant_properties, foreign_key: :participant_uuid, primary_key: :uuid, dependent: :destroy
+  has_many :relationships, foreign_key: :participant_owner_uuid, primary_key: :uuid, dependent: :destroy
   belongs_to :participant_type
   delegate :label, to: :participant_type
   acts_as_paranoid

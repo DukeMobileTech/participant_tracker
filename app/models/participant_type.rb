@@ -10,7 +10,7 @@
 #
 
 class ParticipantType < ActiveRecord::Base
-  has_many :participants
-  has_many :properties
+  has_many :participants, dependent: :destroy
+  has_many :properties, dependent: :destroy
   acts_as_paranoid
 end

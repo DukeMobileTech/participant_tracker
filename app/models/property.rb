@@ -16,7 +16,7 @@
 #
 
 class Property < ActiveRecord::Base
-  has_many :participant_properties
+  has_many :participant_properties, dependent: :destroy
   belongs_to :participant_type
   acts_as_paranoid
 end
