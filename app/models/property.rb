@@ -16,6 +16,8 @@
 #
 
 class Property < ActiveRecord::Base
+  default_scope order('id ASC')
+
   has_many :participant_properties
   belongs_to :participant_type
   acts_as_paranoid
