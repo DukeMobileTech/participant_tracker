@@ -16,7 +16,7 @@
 #
 
 class Property < ActiveRecord::Base
-  default_scope order('id ASC')
+  default_scope { order('id ASC') }
 
   has_many :participant_properties, dependent: :destroy
   belongs_to :participant_type
