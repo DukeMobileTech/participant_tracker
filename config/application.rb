@@ -23,5 +23,6 @@ module ParticipantTracking
     
     config.assets.paths << Rails.root.join("vendor", "assets", "lib")
     config.assets.paths << Rails.root.join("vendor", "assets", "img")
+    config.serve_static_assets = true
   end
 end
