@@ -1,0 +1,35 @@
+<div class="row">
+    <div class="col-md-12">
+        <h2 class="page-title">Device Sync Entries</h2>
+    </div>
+</div>
+
+<section class="widget">
+    <table class="table table-striped no-margin sources-table">
+      <thead>
+        <tr>
+          <th>Current App Version</th>
+          <th>Current Language</th>
+          <th>Device UUID</th>
+          <th>Device Label</th>
+          <th>Timezone</th>
+          <th>Participant Types</th>
+          <th>Participant Count</th>
+        </tr>
+      </thead>
+    
+      <tbody>
+        <% @device_sync_entries.each do |device_sync_entry| %>
+          <tr>
+            <td><%= device_sync_entry.current_version %></td>
+            <td><%= device_sync_entry.current_language %></td>
+            <td><%= device_sync_entry.device_uuid %></td>
+            <td><%= device_sync_entry.device_label %></td>
+            <td><%= device_sync_entry.timezone %></td>
+            <td><%= device_sync_entry.participant_types %></td>
+            <td><%= device_sync_entry.participant_count %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+</section>

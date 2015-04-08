@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150129171540) do
+ActiveRecord::Schema.define(version: 20150408142736) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -58,6 +58,18 @@ ActiveRecord::Schema.define(version: 20150129171540) do
 
   create_table "api_keys", force: true do |t|
     t.string   "access_token"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "device_sync_entries", force: true do |t|
+    t.integer  "current_version"
+    t.string   "current_language"
+    t.string   "device_uuid"
+    t.string   "device_label"
+    t.string   "timezone"
+    t.string   "participant_types"
+    t.integer  "participant_count"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -6,6 +6,7 @@ ParticipantTracking::Application.routes.draw do
   namespace :api, defaults: { format: 'json' } do
     namespace :v1 do
       resources :participants, only: [:index, :create, :update]
+      resources :device_sync_entries, only: [:create]
       resources :properties, only: [:index]
       resources :participant_properties, only: [:index, :create, :update]
       resources :participant_types, only: [:index]
@@ -27,5 +28,6 @@ ParticipantTracking::Application.routes.draw do
       resources :participant_properties 
       resources :relationships
   end
+  resources :device_sync_entries, only: [:index]
 
 end
