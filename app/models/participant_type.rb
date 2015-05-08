@@ -12,17 +12,16 @@
 class ParticipantType < ActiveRecord::Base
   has_many :participants, dependent: :destroy
   has_many :properties, dependent: :destroy
+  has_many :relationship_types, foreign_key: :participant_type_owner_id, dependent: :destroy
   acts_as_paranoid
 
   def export
     CSV.generate do |csv|
-      csv << properties.all
+      csv << properties.all + relationship_types.all
       participants.each do |participant|
-        participant_properties = []
-        participant.participant_properties.each do |participant_property|
-          participant_properties << participant_property.value
-        end
-        csv << participant_properties
+        participant_properties = participant.participant_properties.collect(&:value)
+        relationships = participant.relationships.collect(&:participant_related_uuid)
+        csv << participant_properties + relationships
       end
     end 
   end

@@ -16,4 +16,8 @@ class RelationshipType < ActiveRecord::Base
   belongs_to :participant_type_owner, class_name: "ParticipantType", foreign_key: :participant_type_owner_id
   belongs_to :participant_type_related, class_name: "ParticipantType", foreign_key: :participant_type_related_id
   acts_as_paranoid
+
+  def to_s
+    label
+  end
 end
