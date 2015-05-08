@@ -22,7 +22,9 @@ ParticipantTracking::Application.routes.draw do
    
   root 'participants#index'
   resources :properties 
-  resources :participant_types
+  resources :participant_types do
+    get :export, on: :member
+  end
   resources :relationship_types
   resources :participants do
       resources :participant_properties 

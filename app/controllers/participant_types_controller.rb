@@ -1,5 +1,5 @@
 class ParticipantTypesController < ApplicationController
-  before_action :set_participant_type, only: [:show, :edit, :update, :destroy]
+  before_action :set_participant_type, only: [:show, :edit, :update, :destroy, :export]
 
   # GET /participant_types
   # GET /participant_types.json
@@ -54,6 +54,13 @@ class ParticipantTypesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to participant_types_url }
     end
+  end
+
+  def export
+    fname = "#{@participant_type.label}_#{DateTime.now.to_i}.csv"
+    send_data @participant_type.export, 
+      :type => 'text/csv; charset=iso-8859-1; header=present',
+      :disposition => "attachment; filename=#{fname}"
   end
 
   private
