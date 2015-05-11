@@ -20,9 +20,9 @@ class ParticipantType < ActiveRecord::Base
       csv << properties.all + relationship_types.all
       participants.each do |participant|
         participant_properties = participant.participant_properties.collect(&:value)
-        relationships = participant.relationships.collect(&:participant_related_uuid)
-        csv << participant_properties + relationships
+        relationship_property = [participant.relationship_labels.join(' ')]
+        csv << participant_properties + relationship_property
       end
-    end 
+    end
   end
 end

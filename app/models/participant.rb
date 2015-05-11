@@ -18,4 +18,27 @@ class Participant < ActiveRecord::Base
   belongs_to :participant_type
   delegate :label, to: :participant_type
   acts_as_paranoid
+
+  def properties_label
+    properties = participant_type.properties.where(use_as_label: true)
+
+    label = []
+    participant_properties.all.each do |participant_property|
+      properties.all.each do |property|
+        if participant_property.property == property
+          label << participant_property.value
+        end
+      end
+    end
+
+    label.join(' ')
+  end
+
+  def relationship_labels
+    labels = []
+    relationships.all.each do |relationship|
+      labels << relationship.try(:participant_related).try(:properties_label)
+    end
+    labels
+  end
 end
