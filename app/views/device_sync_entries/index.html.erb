@@ -12,6 +12,7 @@
           <th>Current Language</th>
           <th>Device UUID</th>
           <th>Device Label</th>
+          <th>Sync Time</th>
           <th>Timezone</th>
           <th>Participant Types</th>
           <th>Participant Count</th>
@@ -25,6 +26,7 @@
             <td><%= device_sync_entry.current_language %></td>
             <td><%= device_sync_entry.device_uuid %></td>
             <td><%= device_sync_entry.device_label %></td>
+            <td><%= device_sync_entry.created_at.strftime("%Y-%m-%d %I:%M%p") %></td>
             <td><%= device_sync_entry.timezone %></td>
             <td><%= device_sync_entry.participant_types %></td>
             <td><%= device_sync_entry.participant_count %></td>

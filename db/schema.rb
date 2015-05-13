@@ -86,6 +86,15 @@ ActiveRecord::Schema.define(version: 20150408142736) do
 
   add_index "participant_properties", ["deleted_at"], name: "index_participant_properties_on_deleted_at"
 
+  create_table "participant_type_translations", force: true do |t|
+    t.string   "label"
+    t.integer  "participant_type_id"
+    t.string   "alignment"
+    t.string   "language"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "participant_types", force: true do |t|
     t.string   "label"
     t.datetime "created_at"
