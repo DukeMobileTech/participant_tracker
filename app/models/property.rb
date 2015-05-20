@@ -13,6 +13,7 @@
 #  use_as_label        :boolean          default(FALSE)
 #  validator           :string(255)      default("")
 #  include_in_metadata :boolean          default(FALSE)
+#  sorting_property    :boolean          default(FALSE)
 #
 
 class Property < ActiveRecord::Base
