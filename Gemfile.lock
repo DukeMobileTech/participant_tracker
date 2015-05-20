@@ -221,7 +221,7 @@ DEPENDENCIES
   activeadmin!
   better_errors
   binding_of_caller
-  capistrano (~> 3.2.0)
+  capistrano (~> 3.2.1)
   capistrano-bundler (~> 1.1.2)
   capistrano-rails (~> 1.1.1)
   capistrano-rvm (~> 0.1.1)
