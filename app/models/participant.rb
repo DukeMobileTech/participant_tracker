@@ -18,6 +18,7 @@ class Participant < ActiveRecord::Base
   belongs_to :participant_type
   delegate :label, to: :participant_type
   acts_as_paranoid
+  before_destroy :delete_related_relationships
 
   def properties_label
     properties = participant_type.properties.where(use_as_label: true)
@@ -41,4 +42,10 @@ class Participant < ActiveRecord::Base
     end
     labels
   end
+  
+  def delete_related_relationships
+    related = Relationship.where("participant_related_uuid = ?", uuid)
+    related.destroy_all
+  end
+  
 end
