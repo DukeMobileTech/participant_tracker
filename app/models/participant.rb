@@ -19,6 +19,7 @@ class Participant < ActiveRecord::Base
   delegate :label, to: :participant_type
   acts_as_paranoid
   before_destroy :delete_related_relationships
+  paginates_per 100
 
   def properties_label
     properties = participant_type.properties.where(use_as_label: true)

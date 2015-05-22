@@ -21,15 +21,18 @@ ParticipantTracking::Application.routes.draw do
   end 
    
   root 'participants#index'
+  concern :paginatable do
+    get '(page/:page)', :action => :index, :on => :collection, :as => ''
+  end
   resources :properties 
   resources :participant_types do
     get :export, on: :member
   end
   resources :relationship_types
-  resources :participants do
+  resources :participants, :concerns => :paginatable do
       resources :participant_properties 
       resources :relationships
   end
-  resources :device_sync_entries, only: [:index]
+  resources :device_sync_entries, only: [:index], :concerns => :paginatable
 
 end

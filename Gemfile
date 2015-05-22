@@ -15,6 +15,7 @@ gem 'paranoia', '~> 2.0.2'
 gem 'exception_notification'
 gem 'paperclip', '~> 4.2.0'
 gem 'rails_12factor'
+gem 'kaminari', '~> 0.16.3'
 
 group :doc do
   gem 'sdoc', require: false

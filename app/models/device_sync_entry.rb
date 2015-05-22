@@ -15,4 +15,11 @@
 #
 
 class DeviceSyncEntry < ActiveRecord::Base
+  paginates_per 100
+  
+  def participant_types
+    types = read_attribute(:participant_types)
+    types[1..-2] if types
+  end
+  
 end
