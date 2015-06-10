@@ -17,11 +17,16 @@ class ParticipantType < ActiveRecord::Base
 
   def export
     CSV.generate do |csv|
-      csv << properties.all + relationship_types.all
+      csv << properties.all + relationship_types.all + ['device_uuid', 'device_label']
       participants.each do |participant|
-        participant_properties = participant.participant_properties.collect(&:value)
-        relationship_property = [participant.relationship_labels.join(' ')]
-        csv << participant_properties + relationship_property
+        values = []
+        unless properties.all.blank?
+          values += participant.participant_properties.collect(&:value)
+        end
+        unless relationship_types.all.blank?
+          values += [participant.relationship_labels.join(' ')] 
+        end
+        csv << values + [participant.device_uuid, participant.device_label]
       end
     end
   end
