@@ -21,7 +21,7 @@ class ParticipantType < ActiveRecord::Base
       participants.each do |participant|
         values = []
         unless properties.all.blank?
-          values += participant.participant_properties.collect(&:value)
+          participant.participant_properties.blank? ? values.fill(" ", values.length, properties.size) : values += participant.participant_properties.collect(&:value)
         end
         unless relationship_types.all.blank?
           values += [participant.relationship_labels.join(' ')] 
