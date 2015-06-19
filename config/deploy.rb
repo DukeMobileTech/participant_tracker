@@ -2,7 +2,7 @@ lock '3.2.1'
 
 set :application, 'participant_tracker'
 set :scm, :git
-set :repo_url, 'git@github.com:kodvinci/participant_tracker.git'
+set :repo_url, 'git@github.com:DukeMobileTech/participant_tracker.git'
 set :branch, 'master'
 set :deploy_to, '/var/www/participant_tracker'
 set :pty, false
