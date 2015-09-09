@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>Participant Tracking</title>
-  <%= stylesheet_link_tag    "application", media: "all" %>
+  <%= stylesheet_link_tag "application", media: "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,18 +10,21 @@
   <meta name="author" content="">
   <meta charset="utf-8">
 </head>
-    
+
+<body class="background-dark">
 <%= render 'layouts/header' %>
 <div class="content container">
-    <div class="row">
-      <% flash.each do |key, msg| %>
+  <div class="row">
+    <% flash.each do |key, msg| %>
         <% if key == :alert or key == :notice %>
-          <div class="alert alert-<%= key == :alert ? "danger" : "success" %> text-center"><%= msg %></div>
+            <div class="alert alert-<%= key == :alert ? "danger" : "success" %> text-center"><%= msg %></div>
         <% end %>
-      <% end %>
-    </div>
-    <div class="row">
-      <%= yield %>
-    </div>
+    <% end %>
+  </div>
+  <div class="row">
+    <%= yield %>
+  </div>
 </div>
 <%= render 'layouts/footer' %>
+</body>
+</html>

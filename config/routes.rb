@@ -33,6 +33,7 @@ ParticipantTracking::Application.routes.draw do
       resources :participant_properties 
       resources :relationships
   end
-  resources :device_sync_entries, only: [:index], :concerns => :paginatable
-
+  resources :devices do
+    resources :device_sync_entries, only: [:index], :concerns => :paginatable
+  end
 end

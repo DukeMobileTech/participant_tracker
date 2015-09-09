@@ -1,0 +1,33 @@
+<div class="row">
+  <div class="col-md-12">
+    <h2 class="page-title">Devices</h2>
+  </div>
+</div>
+
+<section class="widget">
+  <table class="table table-striped no-margin sources-table">
+    <thead>
+    <tr>
+      <th>Device Label</th>
+      <th>Uptodate?</th>
+      <td>Last Sync</td>
+      <td>App Version</td>
+      <td>Sync Entries</td>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% @devices.each do |device| %>
+        <tr>
+          <td><%= device.label %></td>
+          <td><%= device.uptodate? %></td>
+          <% if device.last_sync_entry %>
+              <td><%= time_ago_in_words(device.last_sync_entry.created_at) %> ago</td>
+              <td><%= device.last_sync_entry.current_version %></td>
+              <td><%= link_to 'Sync entries', device_device_sync_entries_path(device.id) %></td>
+          <% end %>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+</section>
