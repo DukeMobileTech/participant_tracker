@@ -45,7 +45,7 @@ class Participant < ActiveRecord::Base
   end
   
   def delete_related_relationships
-    related = Relationship.where("participant_related_uuid = ?", uuid)
+    related = Relationship.where('participant_related_uuid = ?', uuid)
     related.destroy_all
   end
   
