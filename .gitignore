@@ -20,3 +20,5 @@
 
 #Ignore MAC OS files
 vendor/assets/.DS_Store
+
+config/deploy/production.rb

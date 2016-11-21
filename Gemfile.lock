@@ -41,6 +41,8 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
+    airbrussh (1.1.1)
+      sshkit (>= 1.6.1, != 1.7.0)
     arbre (1.1.1)
       activesupport (>= 3.0.0)
     arel (5.0.1.20140414130214)
@@ -55,14 +57,17 @@ GEM
       sass (~> 3.2)
       thor
     builder (3.2.2)
-    capistrano (3.2.1)
+    capistrano (3.6.1)
+      airbrussh (>= 1.0.0)
+      capistrano-harrow
       i18n
       rake (>= 10.0.0)
-      sshkit (~> 1.3)
-    capistrano-bundler (1.1.4)
+      sshkit (>= 1.9.0)
+    capistrano-bundler (1.2.0)
       capistrano (~> 3.1)
       sshkit (~> 1.2)
-    capistrano-rails (1.1.8)
+    capistrano-harrow (0.5.3)
+    capistrano-rails (1.2.0)
       capistrano (~> 3.1)
       capistrano-bundler (~> 1.1)
     capistrano-rvm (0.1.2)
@@ -171,7 +176,7 @@ GEM
       i18n
       polyamorous (~> 1.3)
     rdoc (4.3.0)
-    redis (3.3.1)
+    redis (3.3.2)
     redis-actionpack (5.0.1)
       actionpack (>= 4.0, < 6)
       redis-rack (>= 1, < 3)
@@ -232,10 +237,10 @@ DEPENDENCIES
   activeadmin (~> 1.0.0.pre4)
   better_errors
   binding_of_caller
-  capistrano (~> 3.2.1)
-  capistrano-bundler (~> 1.1.2)
-  capistrano-rails (~> 1.1.1)
-  capistrano-rvm (~> 0.1.1)
+  capistrano
+  capistrano-bundler
+  capistrano-rails
+  capistrano-rvm
   coffee-rails (~> 4.0.0)
   devise (~> 3.2.4)
   exception_notification
