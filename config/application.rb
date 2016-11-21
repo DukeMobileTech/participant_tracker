@@ -21,8 +21,9 @@ module ParticipantTracking
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
     config.i18n.enforce_available_locales = true
-    config.assets.paths << Rails.root.join("vendor", "assets", "images")
-    config.assets.paths << Rails.root.join("vendor", "assets", "lib")
+    config.assets.paths << Rails.root.join('vendor', 'assets', 'images')
+    config.assets.paths << Rails.root.join('vendor', 'assets', 'lib')
     config.serve_static_assets = true
+    config.cache_store = :redis_store, 'redis://localhost:6379/1/cache'
   end
 end

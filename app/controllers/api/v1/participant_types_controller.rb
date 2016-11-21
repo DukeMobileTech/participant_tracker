@@ -1,15 +1,11 @@
 module Api
   module V1
     class ParticipantTypesController < ApiApplicationController
+      include SynchAble
       respond_to :json
 
       def index
-        if params[:last_sync_time].blank?
-          respond_with ParticipantType.with_deleted
-        else
-          last_sync_time = Time.at(params[:last_sync_time].to_i/1000).to_datetime
-          respond_with ParticipantType.with_deleted.where('updated_at >= ?', last_sync_time)
-        end
+        respond_with changed_models(ParticipantType, params[:last_sync_time])
       end
 
     end
