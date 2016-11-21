@@ -14,4 +14,5 @@
  *= require application.commented 
  *= require ../../../vendor/assets/lib/nvd3/src/nv.d3
  *= require fontello/css/fontello
+ *= require fonts
  */
