@@ -17,6 +17,9 @@ gem 'rails_12factor'
 gem 'kaminari', '~> 0.16.3'
 gem 'redis', '~> 3.3', '>= 3.3.1'
 gem 'redis-rails'
+gem 'annotate', '~> 2.7', '>= 2.7.1'
+gem 'oj'
+gem 'oj_mimic_json'
 
 group :production do
   gem 'pg'

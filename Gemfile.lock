@@ -43,6 +43,9 @@ GEM
       tzinfo (~> 1.1)
     airbrussh (1.1.1)
       sshkit (>= 1.6.1, != 1.7.0)
+    annotate (2.7.1)
+      activerecord (>= 3.2, < 6.0)
+      rake (>= 10.4, < 12.0)
     arbre (1.1.1)
       activesupport (>= 3.0.0)
     arel (5.0.1.20140414130214)
@@ -132,6 +135,8 @@ GEM
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
     net-ssh (3.2.0)
+    oj (2.17.5)
+    oj_mimic_json (1.0.1)
     orm_adapter (0.5.0)
     paperclip (4.2.4)
       activemodel (>= 3.2.0)
@@ -235,6 +240,7 @@ PLATFORMS
 
 DEPENDENCIES
   activeadmin (~> 1.0.0.pre4)
+  annotate (~> 2.7, >= 2.7.1)
   better_errors
   binding_of_caller
   capistrano
@@ -247,6 +253,8 @@ DEPENDENCIES
   jbuilder (~> 1.2)
   jquery-rails
   kaminari (~> 0.16.3)
+  oj
+  oj_mimic_json
   paperclip (~> 4.2.0)
   paranoia (~> 2.0.2)
   pg

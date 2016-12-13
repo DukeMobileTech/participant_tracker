@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150909150755) do
+ActiveRecord::Schema.define(version: 20161212151119) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -161,6 +161,48 @@ ActiveRecord::Schema.define(version: 20150909150755) do
   end
 
   add_index "relationships", ["deleted_at"], name: "index_relationships_on_deleted_at"
+
+  create_table "responses", force: true do |t|
+    t.string   "survey_uuid"
+    t.integer  "question_id"
+    t.text     "text"
+    t.text     "other_response"
+    t.string   "special_response"
+    t.datetime "time_started"
+    t.datetime "time_ended"
+    t.string   "question_identifier"
+    t.string   "uuid"
+    t.integer  "question_version"
+    t.integer  "device_user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "rosters", force: true do |t|
+    t.string   "uuid"
+    t.string   "identifier"
+    t.string   "instrument_title"
+    t.integer  "instrument_id"
+    t.integer  "instrument_version_number"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "surveys", force: true do |t|
+    t.integer  "instrument_id"
+    t.integer  "instrument_version_number"
+    t.string   "device_uuid"
+    t.string   "device_label"
+    t.string   "uuid"
+    t.string   "instrument_title"
+    t.string   "latitude"
+    t.string   "longitude"
+    t.text     "metadata"
+    t.boolean  "has_critical_responses"
+    t.string   "roster_uuid"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

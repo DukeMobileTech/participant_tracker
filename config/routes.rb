@@ -18,6 +18,11 @@ ParticipantTracking::Application.routes.draw do
         delete 'sessions' => 'sessions#destroy', :as => 'logout'
       end
     end
+    namespace :v2 do
+      resources :rosters, only: [:create]
+      resources :surveys, only: [:create]
+      resources :responses, only: [:create]
+    end
   end 
    
   root 'participants#index'
