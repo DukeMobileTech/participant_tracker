@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161212151119) do
+ActiveRecord::Schema.define(version: 20170309225824) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -119,9 +119,21 @@ ActiveRecord::Schema.define(version: 20161212151119) do
     t.datetime "deleted_at"
     t.string   "device_uuid",         default: ""
     t.string   "device_label",        default: ""
+    t.integer  "project_id"
   end
 
   add_index "participants", ["deleted_at"], name: "index_participants_on_deleted_at"
+  add_index "participants", ["project_id"], name: "index_participants_on_project_id"
+
+  create_table "projects", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.datetime "deleted_at"
+  end
+
+  add_index "projects", ["deleted_at"], name: "index_projects_on_deleted_at"
 
   create_table "properties", force: true do |t|
     t.string   "label"
@@ -200,6 +212,13 @@ ActiveRecord::Schema.define(version: 20161212151119) do
     t.text     "metadata"
     t.boolean  "has_critical_responses"
     t.string   "roster_uuid"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "user_projects", force: true do |t|
+    t.integer  "project_id"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
