@@ -1,15 +1,16 @@
-<section class="widget">                        
-<%= form_for [@participant, @participant_property] do |f| %>
+<section class="widget">
+  <%= form_for [current_project, @participant, @participant_property] do |f| %>
   <% if @participant_property.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@participant_property.errors.count, "error") %> prohibited this participant_property from being saved:</h2>
+  <div id="error_explanation">
+    <h2><%= pluralize(@participant_property.errors.count, "error") %>
+      prohibited this participant_property from being saved:</h2>
 
-      <ul>
+    <ul>
       <% @participant_property.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
+      <li><%= msg %></li>
       <% end %>
-      </ul>
-    </div>
+    </ul>
+  </div>
   <% end %>
 
   <div class="row control-group">
@@ -20,9 +21,9 @@
     <label class="col-md-4 control-label"><%= f.label :value %></label>
     <div class="col-md-8"><%= f.text_field :value %></div>
   </div>
-  
+
   <div class="form-actions">
     <%= f.submit class: 'btn btn-primary' %>
   </div>
-<% end %>
+  <% end %>
 </section>

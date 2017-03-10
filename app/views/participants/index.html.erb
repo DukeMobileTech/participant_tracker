@@ -1,37 +1,34 @@
-<div class="row">
-<div class="col-md-12">
-    <h2 class="page-title">Participants</h2>
+<h2 class="text-center page-title">
+  <%= "#{current_project.name} Participants" %>
+</h2>
 
 <section class="widget">
-<table class="table table-striped no-margin sources-table">
-  <thead>
-    <tr>
-      <th>Participant ID</th>
-      <th>Participant UUID</th>
-      <th>Participant Type</th>
-      <th>Participant Properties</th>
-      <th>Participant Relationships</th>
-      <th>Device UUID</th>
-      <th>Device Label</th>
-    </tr>
-  </thead>
+  <table class="table table-striped no-margin sources-table">
+    <thead>
+      <tr>
+        <th>Participant ID</th>
+        <th>Participant UUID</th>
+        <th>Participant Type</th>
+        <th>Participant Properties</th>
+        <th>Participant Relationships</th>
+        <th>Device UUID</th>
+        <th>Device Label</th>
+      </tr>
+    </thead>
 
-  <tbody>
-    <% @participants.each do |participant| %>
-        <tr>
-            <td><%= participant.id %></td>
-            <td><%= participant.uuid %></td>
-            <td><%= participant.label %></td>
-            <td><%= link_to 'Properties', participant_participant_properties_path(participant) %></td>
-            <td><%= link_to 'Relationships', participant_relationships_path(participant) %></td>
-            <td><%= participant.device_uuid %></td>
-            <td><%= participant.device_label %></td>
-        </tr>
-    <% end %>
-  </tbody>
-</table>
-<%= paginate @participants %>
+    <tbody>
+      <% @participants.each do |participant| %>
+      <tr>
+        <td><%= participant.id %></td>
+        <td><%= participant.uuid %></td>
+        <td><%= participant.label %></td>
+        <td><%= link_to 'Properties', project_participant_participant_properties_path(current_project, participant) %></td>
+        <td><%= link_to 'Relationships', project_participant_relationships_path(current_project, participant) %></td>
+        <td><%= participant.device_uuid %></td>
+        <td><%= participant.device_label %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%= paginate @participants %>
 </section>
-
-</div>
-</div>

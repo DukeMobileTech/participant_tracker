@@ -5,9 +5,8 @@ module Api
       respond_to :json
 
       def index
-        respond_with changed_models(ParticipantType, params[:last_sync_time])
+        respond_with changed_models(ParticipantType, 'participant_types', params[:last_sync_time])
       end
-
     end
   end
 end

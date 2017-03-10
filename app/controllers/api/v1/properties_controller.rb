@@ -5,9 +5,8 @@ module Api
       respond_to :json
 
       def index
-        respond_with changed_models(Property, params[:last_sync_time])
+        respond_with changed_models(Property, 'properties', params[:last_sync_time])
       end
-
     end
   end
 end

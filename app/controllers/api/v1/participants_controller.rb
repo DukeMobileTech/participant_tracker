@@ -5,30 +5,34 @@ module Api
       respond_to :json
 
       def index
-        respond_with changed_models(Participant, params[:last_sync_time])
+        project = Project.find(params[:project_id])
+        respond_with changed_models(project.participants, 'participants', params[:last_sync_time])
       end
 
       def create
-        @participant = Participant.new(participant_params)
-        if @participant.save
-          render json: @participant, status: :created
+        project = Project.find(params[:project_id])
+        participant = project.participants.new(participant_params)
+        if participant.save
+          render json: participant, status: :created
         else
           render nothing: true, status: :unprocessable_entity
         end
       end
 
       def update
-        @participant = Participant.find(params[:id])
-        if @participant.update_attributes(participant_params)
-          render json: @participant, status: :ok
+        project = Project.find(params[:project_id])
+        participant = project.participants.find(params[:id])
+        if participant.update_attributes(participant_params)
+          render json: participant, status: :ok
         else
           render nothing: true, status: :unprocessable_entity
         end
       end
 
       private
+
       def participant_params
-        params.require(:participant).permit(:participant_type_id, :uuid, :device_uuid, :device_label)
+        params.require(:participant).permit(:participant_type_id, :uuid, :device_uuid, :device_label, :project)
       end
     end
   end

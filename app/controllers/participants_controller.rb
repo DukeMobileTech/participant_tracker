@@ -2,21 +2,19 @@ class ParticipantsController < ApplicationController
   before_action :set_participant, only: [:show, :edit, :update, :destroy]
 
   def index
-    @participants = Participant.all.order('participant_type_id').page params[:page]
+    @participants = current_project.participants.order('participant_type_id').page params[:page]
   end
 
-  def show
-  end
+  def show; end
 
   def new
-    @participant = Participant.new
+    @participant = current_project.participants.new
   end
 
-  def edit
-  end
+  def edit; end
 
   def create
-    @participant = Participant.new(participant_params)
+    @participant = current_project.participants.new(participant_params)
 
     respond_to do |format|
       if @participant.save
@@ -40,18 +38,17 @@ class ParticipantsController < ApplicationController
   def destroy
     @participant.destroy
     respond_to do |format|
-      format.html { redirect_to participants_url }
+      format.html { redirect_to project_participants_path(current_project) }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_participant
-      @participant = Participant.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def participant_params
-      params.require(:participant).permit(:participant_type_id, :uuid)
-    end
+  def set_participant
+    @participant = current_project.participants.find(params[:id])
+  end
+
+  def participant_params
+    params.require(:participant).permit(:participant_type_id, :uuid)
+  end
 end

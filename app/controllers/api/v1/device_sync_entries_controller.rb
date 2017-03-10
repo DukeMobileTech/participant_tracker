@@ -14,6 +14,7 @@ module Api
       end
 
       private
+
       def device_sync_entry_params
         params.require(:device_sync_entry).permit(:current_version, :current_language, :device_uuid, :device_label, :timezone, :participant_types, :participant_count)
       end

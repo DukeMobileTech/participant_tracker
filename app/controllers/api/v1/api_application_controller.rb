@@ -7,7 +7,7 @@ module Api
       before_filter :verify_authenticity_token
       skip_before_filter :authenticate_user_from_token!
       skip_before_filter :authenticate_user!
-      
+
       def restrict_access
         unless current_user
           api_key = ApiKey.find_by_access_token(params[:access_token])
@@ -20,7 +20,7 @@ module Api
           head :upgrade_required unless params[:version_code].to_i >= Settings.minimum_android_version_code
         end
       end
-      
+
       def verify_authenticity_token
         if params[:auth_token] != 'null' && params[:user_email] != 'null'
           user = User.find_by_email(params[:user_email])
@@ -29,7 +29,6 @@ module Api
           head :no_content
         end
       end
-    
     end
   end
 end

@@ -1,0 +1,20 @@
+<h2 class="text-center">Projects</h2>
+
+<section class="widget">
+  <table class="table table-striped no-margin sources-table">
+    <thead>
+      <tr>
+        <th>Project Name</th>
+        <th>Project Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @projects.each do |project| %>
+      <tr>
+        <td><%= link_to project.name, project %></td>
+        <td><%= project.description %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</section>

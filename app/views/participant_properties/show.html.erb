@@ -1,25 +1,26 @@
 <div class="row">
-    <div class="col-md-12">
-        <h2 class="page-title">Participant Property Label: <%= @participant_property.value %></h2>
-    </div>
+  <div class="col-md-12">
+    <h2 class="page-title">Participant Property Label:
+      <%= @participant_property.value %></h2>
+  </div>
 </div>
 <section class="widget">
-<p id="notice"><%= notice %></p>
+  <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Participant UUID:</strong>
-  <%= @participant_property.participant_uuid %>
-</p>
+  <p>
+    <strong>Participant UUID:</strong>
+    <%= @participant_property.participant_uuid %>
+  </p>
 
-<p>
-  <strong>Property ID:</strong>
-  <%= @participant_property.property_id %>
-</p>
+  <p>
+    <strong>Property ID:</strong>
+    <%= @participant_property.property_id %>
+  </p>
 
-<p>
-  <strong>Value:</strong>
-  <%= @participant_property.value %>
-</p>
+  <p>
+    <strong>Value:</strong>
+    <%= @participant_property.value %>
+  </p>
 
-<%= link_to 'Edit Property', edit_participant_participant_property_path(@participant, @participant_property), class: 'btn btn-primary' %> 
+  <%= link_to 'Edit Property', edit_project_participant_participant_property_path(current_project, @participant, @participant_property), class: 'btn btn-primary' %>
 </section>
