@@ -44,4 +44,5 @@ ParticipantTracking::Application.routes.draw do
   resources :devices do
     resources :device_sync_entries, only: [:index], concerns: :paginatable
   end
+  resources :android_updates, only: [:index, :show]
 end
