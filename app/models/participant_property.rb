@@ -17,4 +17,17 @@ class ParticipantProperty < ActiveRecord::Base
   belongs_to :property
   delegate :label, to: :property
   acts_as_paranoid
+  after_save :update_validator, if: :value_changed? && :same_property?
+
+  def same_property?
+    participant.validator.property_id == property_id
+  end
+
+  def update_validator
+    if participant.center?
+      participant.update(validator_value: value)
+    else
+      participant.update(validator_value: value.split('-')[1])
+    end
+  end
 end

@@ -11,6 +11,8 @@
 #  device_uuid         :string(255)      default("")
 #  device_label        :string(255)      default("")
 #  project_id          :integer
+#  active              :boolean          default(FALSE)
+#  validator_value     :string(255)      default("")
 #
 
 class Participant < ActiveRecord::Base
@@ -21,7 +23,27 @@ class Participant < ActiveRecord::Base
   delegate :label, to: :participant_type
   acts_as_paranoid
   before_destroy :delete_related_relationships
+  after_save :set_active_status, if: :active_changed? && :center?
   paginates_per 100
+
+  def set_active_status
+    center_participants.update_all(active: active, updated_at: Time.now.utc) if center_participants
+  end
+
+  def validator
+    if participant_type.validator
+      participant_properties.where(property_id: participant_type.validator.id).try(:first)
+    end
+  end
+
+  def center_participants
+    return unless center?
+    Participant.where('validator_value = ? AND participant_type_id != ?', validator_value, participant_type_id)
+  end
+
+  def center?
+    participant_type.label.strip.casecmp('center').zero?
+  end
 
   def properties_label
     properties = participant_type.properties.where(use_as_label: true)
