@@ -20,6 +20,7 @@ class ParticipantProperty < ActiveRecord::Base
   after_save :update_validator, if: :value_changed? && :same_property?
 
   def same_property?
+    return false unless participant.validator
     participant.validator.property_id == property_id
   end
 
