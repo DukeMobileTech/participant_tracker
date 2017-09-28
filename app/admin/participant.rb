@@ -1,6 +1,10 @@
 ActiveAdmin.register Participant do
-  belongs_to :participant_type
   permit_params :uuid, :participant_type_id, :active, :validation_id
+
+  scope :all
+  ParticipantType.all.each do |pt|
+    scope pt.pretty_label.to_sym
+  end
 
   sidebar 'Associations', only: :show do
     ul do

@@ -5,7 +5,7 @@ ActiveAdmin.register_page 'Dashboard' do
     section 'Recent Participants' do
       table_for Participant.order('created_at desc').limit(10) do
         column :id do |participant|
-          link_to participant.id, [:admin, participant.participant_type, participant]
+          link_to participant.id, [:admin, participant]
         end
         column :uuid
         column 'Participant Type', :participant_type_id do |participant|

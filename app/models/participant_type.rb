@@ -16,6 +16,10 @@ class ParticipantType < ActiveRecord::Base
   has_one :validator, -> { where.not(validator: '') }, class_name: 'Property'
   acts_as_paranoid
 
+  def pretty_label
+    label.downcase.gsub(/\W+/, '_')
+  end
+
   def export
     CSV.generate do |csv|
       if label.strip.casecmp('child').zero?

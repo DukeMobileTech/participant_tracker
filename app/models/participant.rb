@@ -26,6 +26,11 @@ class Participant < ActiveRecord::Base
   after_save :set_active_status, if: :active_changed? && :center?
   paginates_per 100
 
+  # Scopes for active admin
+  ParticipantType.all.each do |pt|
+    scope pt.pretty_label, -> { where(participant_type_id: pt.id) }
+  end
+
   def set_active_status
     center_participants.update_all(active: active, updated_at: Time.now.utc) if center_participants
   end
