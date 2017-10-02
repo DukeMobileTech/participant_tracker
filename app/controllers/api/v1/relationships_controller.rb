@@ -6,7 +6,7 @@ module Api
 
       def index
         project = Project.find(params[:project_id])
-        respond_with changed_models(project.relationships, 'relationships', params[:last_sync_time])
+        @relationships = changed_models(project.relationships, 'relationships', params[:last_sync_time])
       end
 
       def create

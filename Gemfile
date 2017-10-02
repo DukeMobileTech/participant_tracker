@@ -19,6 +19,7 @@ gem 'redis-rails'
 gem 'annotate', '~> 2.7', '>= 2.7.1'
 gem 'oj'
 gem 'oj_mimic_json'
+gem 'rabl', '0.13.1'
 
 group :production do
   gem 'pg'

@@ -6,7 +6,7 @@ module Api
 
       def index
         project = Project.find(params[:project_id])
-        respond_with changed_models(project.participant_properties, 'participant_properties', params[:last_sync_time])
+        @participant_properties = changed_models(project.participant_properties, 'participant_properties', params[:last_sync_time])
       end
 
       def create
