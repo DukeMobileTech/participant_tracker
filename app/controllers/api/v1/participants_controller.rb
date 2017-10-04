@@ -29,10 +29,38 @@ module Api
         end
       end
 
+      def batch_create
+        Participant.transaction do
+          project = Project.find(params[:project_id])
+          puts params[:participants]
+          params[:participants].each do |record|
+            participant = project.participants.new(participant_params(record))
+            participant.save
+          end
+        end
+        head :ok
+      end
+
+      def batch_update
+        Participant.transaction do
+          project = Project.find(params[:project_id])
+          puts params[:participants]
+          params[:participants].each do |record|
+            participant = project.participants.find(record[:id])
+            participant.update_attributes(participant_params(record))
+          end
+        end
+        head :ok
+      end
+
       private
 
-      def participant_params
-        params.require(:participant).permit(:participant_type_id, :uuid, :device_uuid, :device_label, :project, :active)
+      def participant_params(record)
+        if record.nil?
+          params.require(:participant).permit(:participant_type_id, :uuid, :device_uuid, :device_label, :project_id, :active)
+        else
+          record.permit(:participant_type_id, :uuid, :device_uuid, :device_label, :project_id, :active)
+        end
       end
     end
   end

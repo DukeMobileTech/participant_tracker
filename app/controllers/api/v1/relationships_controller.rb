@@ -29,10 +29,36 @@ module Api
         end
       end
 
+      def batch_create
+        Relationship.transaction do
+          project = Project.find(params[:project_id])
+          params[:relationships].each do |record|
+            rel = project.relationships.new(relationship_params(record))
+            rel.save
+          end
+        end
+        head :ok
+      end
+
+      def batch_update
+        Relationship.transaction do
+          project = Project.find(params[:project_id])
+          params[:relationships].each do |record|
+            rel = project.relationships.find(record[:id])
+            rel.update_attributes(relationship_params(record))
+          end
+        end
+        head :ok
+      end
+
       private
 
-      def relationship_params
-        params.require(:relationship).permit(:participant_owner_uuid, :participant_related_uuid, :uuid, :relationship_type_id)
+      def relationship_params(record)
+        if record.nil?
+          params.require(:relationship).permit(:participant_owner_uuid, :participant_related_uuid, :uuid, :relationship_type_id)
+        else
+          record.permit(:participant_owner_uuid, :participant_related_uuid, :uuid, :relationship_type_id)
+        end
       end
     end
   end
