@@ -20,7 +20,7 @@ ActiveAdmin.register_page 'Dashboard' do
       table_for PaperTrail::Version.order('id desc').limit(20) do
         column ('Item') do |v|
           v.item.class.name == 'ParticipantProperty' ?
-          link_to(v.item, [:admin, v.item.participant, v.item]) : link_to(v.item, [:admin, v.item])
+          link_to(v.item.label, [:admin, v.item.participant, v.item]) : link_to(v.item.label, [:admin, v.item])
         end
         column ('Type') { |v| v.item_type.underscore.humanize }
         column ('Modified at') { |v| v.created_at.to_s :long }
