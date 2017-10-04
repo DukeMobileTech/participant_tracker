@@ -12,6 +12,18 @@ ActiveAdmin.register Participant do
     end
   end
 
+  sidebar :versionate, partial: 'layouts/version', only: :show
+
+  member_action :history do
+    @participant = Participant.find(params[:id])
+    @versions = PaperTrail::Version.where(item_type: 'Participant', item_id: @participant.id)
+    render 'layouts/history'
+  end
+
+  action_item :history, only: :show do
+    link_to 'Participant History', history_admin_participant_path(params[:id])
+  end
+
   index do
     selectable_column
     column :id
@@ -52,5 +64,14 @@ ActiveAdmin.register Participant do
       f.input :active
     end
     f.actions
+  end
+
+  controller do
+    def show
+      @participant = Participant.includes(versions: :item).find(params[:id])
+      @versions = @participant.versions
+      @participant = @participant.versions[params[:version].to_i].reify if params[:version]
+      show! # it seems to need this
+     end
   end
 end

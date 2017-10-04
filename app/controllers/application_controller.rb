@@ -6,6 +6,17 @@ class ApplicationController < ActionController::Base
   before_filter :authenticate_user_from_token!
   before_filter :authenticate_user!
   before_filter :set_project
+  before_action :set_paper_trail_whodunnit
+
+  protected
+
+  def user_for_paper_trail
+    if admin_user_signed_in?
+      "#{current_admin_user.class}:#{current_admin_user.try(:id)}"
+    elsif user_signed_in?
+      "#{current_user.class}:#{current_user.try(:id)}"
+    end
+  end
 
   private
 

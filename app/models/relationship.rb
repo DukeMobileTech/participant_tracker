@@ -18,4 +18,5 @@ class Relationship < ActiveRecord::Base
   belongs_to :participant_owner, class_name: 'Participant', foreign_key: :participant_owner_uuid
   belongs_to :participant_related, class_name: 'Participant', primary_key: :uuid, foreign_key: :participant_related_uuid
   acts_as_paranoid
+  has_paper_trail on: %i[update destroy], ignore: %i[id created_at updated_at]
 end

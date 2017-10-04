@@ -20,4 +20,5 @@
 
 class Response < ActiveRecord::Base
   belongs_to :survey, foreign_key: :survey_uuid, primary_key: :uuid
+  has_paper_trail on: %i[update destroy]
 end

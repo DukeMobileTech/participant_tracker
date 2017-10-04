@@ -7,6 +7,11 @@ module Api
       before_filter :verify_authenticity_token
       skip_before_filter :authenticate_user_from_token!
       skip_before_filter :authenticate_user!
+      before_action :set_paper_trail_whodunnit
+
+      def user_for_paper_trail
+        "#{@user.class}:#{@user.try(:id)}" if @user
+      end
 
       def restrict_access
         unless current_user
@@ -23,8 +28,8 @@ module Api
 
       def verify_authenticity_token
         if params[:auth_token] != 'null' && params[:user_email] != 'null'
-          user = User.find_by_email(params[:user_email])
-          head :forbidden unless user && Devise.secure_compare(user.authentication_token, params[:auth_token])
+          @user = User.find_by_email(params[:user_email])
+          head :forbidden unless @user && Devise.secure_compare(@user.authentication_token, params[:auth_token])
         else
           head :no_content
         end

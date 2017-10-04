@@ -25,7 +25,7 @@ module ParticipantTracking
     config.assets.paths << Rails.root.join('vendor', 'assets', 'lib')
     config.assets.paths << Rails.root.join('vendor', 'assets', 'fonts')
     config.assets.precompile << /\.(?:svg|eot|woff|ttf)\z/
-    config.serve_static_assets = true
+    config.serve_static_files = true
     config.cache_store = :redis_store, 'redis://localhost:6379/1/cache'
     config.active_record.raise_in_transactional_callbacks = true
   end

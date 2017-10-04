@@ -15,5 +15,17 @@ ActiveAdmin.register_page 'Dashboard' do
         column :updated_at
       end
     end
+
+    section 'Recently Updated Content' do
+      table_for PaperTrail::Version.order('id desc').limit(20) do
+        column ('Item') do |v|
+          v.item.class.name == 'ParticipantProperty' ?
+          link_to(v.item, [:admin, v.item.participant, v.item]) : link_to(v.item, [:admin, v.item])
+        end
+        column ('Type') { |v| v.item_type.underscore.humanize }
+        column ('Modified at') { |v| v.created_at.to_s :long }
+        column ('User') { |v| link_to perpetrator(v.whodunnit).email, [:admin, perpetrator(v.whodunnit)] if perpetrator(v.whodunnit) }
+      end
+    end
   end
 end

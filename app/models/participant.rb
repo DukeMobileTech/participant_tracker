@@ -22,6 +22,7 @@ class Participant < ActiveRecord::Base
   belongs_to :project
   delegate :label, to: :participant_type
   acts_as_paranoid
+  has_paper_trail on: %i[update destroy], ignore: %i[id created_at updated_at]
   before_destroy :delete_related_relationships
   after_save :set_active_status, if: :active_changed? && :center?
   paginates_per 100

@@ -21,6 +21,7 @@ gem 'oj', '~> 2.17.5'
 gem 'oj_mimic_json', '~> 1.0.1'
 gem 'rabl', '0.13.1'
 gem 'responders', '~> 2.0'
+gem 'paper_trail', '~> 7.1', '>= 7.1.3'
 
 group :production do
   gem 'pg', '~> 0.21.0'

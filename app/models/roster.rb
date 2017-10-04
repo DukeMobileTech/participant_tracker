@@ -14,4 +14,5 @@
 
 class Roster < ActiveRecord::Base
   has_many :surveys, foreign_key: :roster_uuid, primary_key: :uuid, dependent: :destroy
+  has_paper_trail on: %i[update destroy]
 end

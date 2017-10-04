@@ -18,6 +18,7 @@ class ParticipantProperty < ActiveRecord::Base
   delegate :label, to: :property
   acts_as_paranoid
   after_save :update_validator, if: :value_changed? && :same_property?
+  has_paper_trail on: %i[update destroy], ignore: %i[id created_at updated_at]
 
   def same_property?
     return false unless participant.validator

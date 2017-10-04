@@ -21,4 +21,5 @@
 class Survey < ActiveRecord::Base
   belongs_to :roster, foreign_key: :roster_uuid, primary_key: :uuid
   has_many :responses, foreign_key: :survey_uuid, primary_key: :uuid, dependent: :destroy
+  has_paper_trail on: %i[update destroy]
 end

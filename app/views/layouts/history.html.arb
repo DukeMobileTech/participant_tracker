@@ -1,0 +1,12 @@
+panel 'History' do
+  table_for assigns[:versions] do
+    column ('Item') do |v|
+      v.item.class.name == 'ParticipantProperty' ?
+      link_to(v.item, [:admin, v.item.participant, v.item]) : link_to(v.item, [:admin, v.item])
+    end
+    column ('Type') { |v| v.item_type.underscore.humanize }
+    column ('Modified at') { |v| v.created_at.to_s :long }
+    column ('User') { |v| link_to perpetrator(v.whodunnit).email, [:admin, perpetrator(v.whodunnit)] if v.whodunnit }
+    column ('Value') { |v| YAML.load(v.object)['value'] }
+  end
+end
