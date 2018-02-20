@@ -19,8 +19,10 @@ ActiveAdmin.register_page 'Dashboard' do
     section 'Recently Updated Content' do
       table_for PaperTrail::Version.order('id desc').limit(20) do
         column ('Item') do |v|
-          v.item.class.name == 'ParticipantProperty' ?
-          link_to(v.item.label, [:admin, v.item.participant, v.item]) : link_to(v.item.label, [:admin, v.item])
+          unless v.item.nil?
+            v.item.class.name == 'ParticipantProperty' ?
+            link_to(v.item.label, [:admin, v.item.participant, v.item]) : link_to(v.item.label, [:admin, v.item])
+          end
         end
         column ('Type') { |v| v.item_type.underscore.humanize }
         column ('Modified at') { |v| v.created_at.to_s :long }
